@@ -1,6 +1,6 @@
 extends Node
 
-var MAX_DEPTH: int = 5   
+var MAX_DEPTH: int = 3
 
 # Cấu trúc mô phỏng board state
 class SimState:

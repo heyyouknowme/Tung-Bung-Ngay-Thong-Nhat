@@ -235,7 +235,7 @@ func switch_turn():
 		return
 	current_player = "right" if current_player == "left" else "left"
 	
-	if check_game_over():
+	if await check_game_over():
 		return
 	
 	if has_no_dan_quan(current_player):
@@ -279,7 +279,7 @@ func check_game_over():
 	
 	if quan_left == 0 and quan_right == 0:
 		game_over = true
-		collect_remaining_quan()
+		await collect_remaining_quan()
 		update_board()
 		show_end_game()
 		return true  # 🛑 Đã kết thúc
@@ -311,7 +311,7 @@ func regenerate_dan(player: String) -> void:
 		
 		print("⚠️ Người chơi %s không đủ điểm để cấy lại quân. Trò chơi kết thúc!" % player)
 		game_over = true
-		collect_remaining_quan()
+		await collect_remaining_quan()
 		show_end_game()
 		return
 	if game_over:
@@ -336,13 +336,13 @@ func regenerate_dan(player: String) -> void:
 
 func collect_remaining_quan():
 	for i in range(1, 6):
-		await get_tree().create_timer(0.5).timeout
-		add_to_captured_slot("left", i, board[i].count, board[i].type)
+		#await get_tree().create_timer(0.5).timeout
+		#add_to_captured_slot("left", i, board[i].count, board[i].type)
 		score["left"] += board[i].count
 		board[i].count = 0
 	for i in range(7, 12):
-		await get_tree().create_timer(0.5).timeout
-		add_to_captured_slot("right", i, board[i].count, board[i].type)
+		#await get_tree().create_timer(0.5).timeout
+		#add_to_captured_slot("right", i, board[i].count, board[i].type)
 		score["right"] += board[i].count
 		board[i].count = 0
 
