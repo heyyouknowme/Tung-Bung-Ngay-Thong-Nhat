@@ -125,12 +125,13 @@ func show_bot_info(level: int):
 	}
 	var name = bot_names.get(level, "Unknown")
 	name_label.text = name + " (level" + str(level) + ")"
-	name_label.position = Vector2(1600 - name_label.size.x - 500, 300)
 	name_label.set("theme_override_colors/font_color", Color.BLACK)
 	name_label.set("theme_override_font_sizes/font_size", 30)
 	var custom_font = preload("res://CO_GANH/assets/fonts/SVN-Retron 2000.otf")
 	name_label.set("theme_override_fonts/font", custom_font)
+
 	add_child(name_label)
+	name_label.position = Vector2(1600 - name_label.size.x - 100, 300)
 
 
 func draw_board():
