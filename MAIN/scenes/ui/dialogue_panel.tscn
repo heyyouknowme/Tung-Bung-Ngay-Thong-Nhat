@@ -1,0 +1,162 @@
+[gd_scene load_steps=12 format=3 uid="uid://jb40d53eq8fs"]
+
+[ext_resource type="Script" uid="uid://byctdw2yb4p8y" path="res://MAIN/script/dialogue_panel.gd" id="1_5n300"]
+[ext_resource type="Texture2D" uid="uid://xyumcoqfu7f7" path="res://MAIN/assets/ui/dialogue.png" id="1_u2elu"]
+[ext_resource type="Texture2D" uid="uid://6yb757dm0ej3" path="res://MAIN/assets/ui/e.png" id="3_p254t"]
+[ext_resource type="Texture2D" uid="uid://bng4qbl7po4ij" path="res://MAIN/assets/sa.png" id="4_8gsy8"]
+[ext_resource type="FontFile" uid="uid://c8d2cnsglax0u" path="res://MAIN/assets/font/SVN-Retron 2000.otf" id="4_swtce"]
+[ext_resource type="Theme" uid="uid://brufdwpn0cq4i" path="res://MAIN/assets/Button_Theme.tres" id="4_wltsb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1uan"]
+font = ExtResource("4_swtce")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8gsy8"]
+font = ExtResource("4_swtce")
+font_size = 35
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_swtce"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gsy8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nch4"]
+
+[node name="DialoguePanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1928.0
+offset_bottom = 1080.0
+script = ExtResource("1_5n300")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1080.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_u2elu")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1616.0
+offset_top = -416.0
+offset_right = 1616.0
+offset_bottom = 664.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.100261, 0.137903)
+texture = ExtResource("3_p254t")
+
+[node name="Selector" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1073.0
+offset_top = 976.0
+offset_right = 2092.0
+offset_bottom = 2000.0
+rotation = -1.57079
+scale = Vector2(0.0338723, 0.0455085)
+texture = ExtResource("4_8gsy8")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -787.0
+offset_top = -288.0
+offset_right = 787.0
+offset_bottom = -134.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "hello this is test "
+label_settings = SubResource("LabelSettings_b1uan")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -724.0
+offset_top = -328.0
+offset_right = 724.0
+offset_bottom = -286.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "hello this is test "
+label_settings = SubResource("LabelSettings_8gsy8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ChoiceBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -152.0
+offset_right = 256.0
+offset_bottom = -83.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_wltsb")
+theme_override_constants/separation = 79
+alignment = 1
+
+[node name="NoButton" type="Button" parent="ChoiceBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_swtce")
+text = "Chưa
+"
+
+[node name="AgainButton" type="Button" parent="ChoiceBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -19
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8gsy8")
+text = "Thuật lại 
+luật chơi"
+
+[node name="YesButton" type="Button" parent="ChoiceBox"]
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2nch4")
+text = "Rồi"

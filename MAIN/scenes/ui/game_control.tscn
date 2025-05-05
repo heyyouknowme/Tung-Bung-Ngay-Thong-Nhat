@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=3 uid="uid://bghlte3la24n5"]
+
+[ext_resource type="Script" uid="uid://o2wnbq4jqpxn" path="res://MAIN/script/game_control.gd" id="1_reb20"]
+[ext_resource type="Texture2D" uid="uid://d04mex2btkvfd" path="res://MAIN/assets/ui/pause_icon.png" id="4_bib5n"]
+[ext_resource type="Texture2D" uid="uid://bt527iaapnslo" path="res://MAIN/assets/ui/pause_screen_in_game.png" id="4_xttgd"]
+[ext_resource type="Theme" uid="uid://ccjbl02crsn70" path="res://MAIN/assets/control_theme.tres" id="5_4o255"]
+[ext_resource type="StyleBox" uid="uid://cjd00vb5wc7vg" path="res://MAIN/assets/control_hover.tres" id="6_wltvo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_brbbq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8n18e"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_reb20")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -8.0
+offset_right = 717.0
+offset_bottom = 1016.0
+scale = Vector2(0.194336, 0.194336)
+texture_normal = ExtResource("4_bib5n")
+texture_pressed = ExtResource("4_bib5n")
+texture_hover = ExtResource("4_bib5n")
+texture_focused = ExtResource("4_bib5n")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -768.0
+offset_right = 768.0
+offset_bottom = 1024.0
+grow_horizontal = 2
+texture = ExtResource("4_xttgd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -126.0
+offset_right = 230.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_4o255")
+theme_override_constants/separation = 84
+
+[node name="ResumeButton" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_4o255")
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_styles/hover = ExtResource("6_wltvo")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_brbbq")
+text = "Resume
+"
+
+[node name="QuitButton" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("6_wltvo")
+theme_override_styles/hover_pressed = ExtResource("6_wltvo")
+theme_override_styles/hover = ExtResource("6_wltvo")
+theme_override_styles/pressed = ExtResource("6_wltvo")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8n18e")
+text = "Exit Game"

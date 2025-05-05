@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://d8228sow577s"]
+
+[ext_resource type="Script" uid="uid://byctdw2yb4p8y" path="res://MAIN/script/dialogue_panel.gd" id="1_njow8"]
+[ext_resource type="Texture2D" uid="uid://xyumcoqfu7f7" path="res://MAIN/assets/ui/dialogue.png" id="2_7e5gm"]
+[ext_resource type="FontFile" uid="uid://c8d2cnsglax0u" path="res://MAIN/assets/font/SVN-Retron 2000.otf" id="3_7e5gm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hqpoq"]
+font = ExtResource("3_7e5gm")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rf77m"]
+font = ExtResource("3_7e5gm")
+font_size = 35
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DialoguePanel" type="Control"]
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_njow8")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_right = 960.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7e5gm")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -724.0
+offset_top = -288.0
+offset_right = 724.0
+offset_bottom = -134.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "hello this is test "
+label_settings = SubResource("LabelSettings_hqpoq")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -724.0
+offset_top = -328.0
+offset_right = 724.0
+offset_bottom = -286.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "hello this is test "
+label_settings = SubResource("LabelSettings_rf77m")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

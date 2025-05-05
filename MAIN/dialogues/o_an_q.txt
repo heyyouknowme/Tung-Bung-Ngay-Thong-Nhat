@@ -1,0 +1,9 @@
+Trạng Quỷnh
+Bàn chơi gồm 12 ô, trong đó có 2 ô Quan lớn nằm ở hai đầu và 10 ô Dân nhỏ xếp thành hai hàng ngang, mỗi hàng 5 ô. Mỗi ô dân bắt đầu với 5 quân dân, còn mỗi ô quan có 1 quân quan.
+Khi đến lượt, người chơi chọn một ô dân thuộc hàng của mình còn quân, bốc toàn bộ quân trong ô đó và rải đều từng quân một vào các ô tiếp theo theo chiều kim đồng hồ hoặc ngược lại (giữ nguyên chiều trong suốt lượt đi). 
+Quá trình rải có thể đi qua cả ô quan. Nếu sau khi rải, ô tiếp theo có quân dân thì người chơi tiếp tục bốc và rải như cũ. Nếu gặp ô quan hoặc hai ô trống liên tiếp, lượt đi kết thúc.
+Nếu gặp một ô trống rồi đến một ô có quân (dân hoặc quan), người chơi được ăn toàn bộ quân trong ô đó. Ăn có thể tiếp tục nếu điều kiện tương tự lặp lại.
+Trong trường hợp người chơi không còn quân dân ở hàng của mình, họ phải bỏ ra 5 dân đã ăn để phân vào từng ô, mỗi ô một dân. 
+Nếu không đủ, người đó bị xử thua. Riêng với ô quan, chỉ được ăn nếu trong đó có ít nhất 6 quân (tức là 1 quan và tối thiểu 5 dân). Ván chơi kết thúc khi cả hai ô quan đều bị ăn hết.
+Lúc này, quân dân còn lại trên bàn thuộc về người kiểm soát hàng đó. Cuối cùng, hai người cộng tổng điểm: mỗi dân được tính 1 điểm, mỗi quan tính 5 điểm. Ai có điểm cao hơn sẽ chiến thắng.
+Bạn đã sẵn sàng chưa?

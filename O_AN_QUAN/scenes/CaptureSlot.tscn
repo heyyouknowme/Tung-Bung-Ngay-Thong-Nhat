@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxxmt81ilt4mq"]
+
+[ext_resource type="Script" uid="uid://l01yanmlkaq4" path="res://O_AN_QUAN/scripts/CapturedSlot.gd" id="1_3unqh"]
+[ext_resource type="Texture2D" uid="uid://cknbeysh3ufko" path="res://O_AN_QUAN/assets/border.png" id="2_ktavs"]
+
+[node name="CaptureSlot" type="Node2D"]
+script = ExtResource("1_3unqh")
+
+[node name="PieceContainer" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_ktavs")

@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://davwsjqkbp7ei"]
+
+[ext_resource type="Script" uid="uid://bj7v7mlsln7ua" path="res://MAIN/script/start.gd" id="1_lv063"]
+[ext_resource type="Texture2D" uid="uid://bjlljq6hygtyq" path="res://MAIN/assets/20250416_0001_Lß╗à Hß╗Öi ─Éß╗ông Qu├¬_simple_compose_01jrx6979pe0stgz3m7artc6e9.png" id="2_p0rt3"]
+[ext_resource type="VideoStream" uid="uid://cpl7gn0k2fufx" path="res://MAIN/assets/video/20250416_1027_Festive-Market-Celebration_loop_01jrya65j3ebeamyj6a2zy33wn.ogv" id="3_5ikr4"]
+[ext_resource type="FontFile" uid="uid://c8d2cnsglax0u" path="res://MAIN/assets/font/SVN-Retron 2000.otf" id="4_bh1mi"]
+[ext_resource type="AudioStream" uid="uid://cmh0ukk0f8apb" path="res://MAIN/assets/music/videoplayback.mp3" id="5_0opky"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bodal"]
+font = ExtResource("4_bh1mi")
+font_size = 30
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lv063")
+next_scene_path = "res://MAIN/scenes/main.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -56.0
+offset_bottom = 784.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.03335, 0.618178)
+texture = ExtResource("2_p0rt3")
+expand_mode = 5
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_5ikr4")
+autoplay = true
+expand = true
+loop = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -201.0
+offset_top = -88.0
+offset_right = 201.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "press any key to start"
+label_settings = SubResource("LabelSettings_bodal")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0opky")
+volume_db = -5.0
+autoplay = true

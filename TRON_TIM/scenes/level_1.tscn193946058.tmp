@@ -1,0 +1,155 @@
+[gd_scene load_steps=10 format=3 uid="uid://crc4brvvyu0rd"]
+
+[ext_resource type="Texture2D" uid="uid://cmhiav8fjkwnd" path="res://assets/sprites/bg-level-11.png" id="1_5xbjy"]
+[ext_resource type="Script" uid="uid://p7jl7bks5gqx" path="res://scripts/level 1/ui.gd" id="2_rqu1d"]
+[ext_resource type="PackedScene" uid="uid://b65qvi4bbgu4l" path="res://scenes/player.tscn" id="2_u3aiy"]
+[ext_resource type="Texture2D" uid="uid://f4a28k8jj2ma" path="res://assets/sprites/obstacle level 1.png" id="4_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://cu27u2f30k1vt" path="res://scenes/quanhuyen.tscn" id="5_4nkto"]
+[ext_resource type="Script" uid="uid://b7k63anibjh77" path="res://scripts/level 1/player_walk.gd" id="5_fcfvj"]
+[ext_resource type="AudioStream" uid="uid://bkve5lfcxch45" path="res://assets/sounds/level 1.mp3" id="7_pa8r4"]
+[ext_resource type="AudioStream" uid="uid://bmcf11s3qxjk1" path="res://assets/sounds/countdown.mp3" id="8_15mv3"]
+[ext_resource type="AudioStream" uid="uid://bhscokfl3suka" path="res://assets/sounds/reng hết giờ.mp3" id="9_e3sih"]
+
+[node name="level 1" type="Node2D"]
+position = Vector2(1, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 191)
+scale = Vector2(65.6241, 65.6241)
+zoom = Vector2(1.5, 1.5)
+
+[node name="background_level1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0.147705, 193)
+scale = Vector2(0.276234, 0.26071)
+texture = ExtResource("1_5xbjy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+z_index = 1
+position = Vector2(-0.00751603, 193.125)
+scale = Vector2(0.276259, 0.262899)
+texture = ExtResource("4_5xbjy")
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-91, 137, -94, 148, -93, 158, -87, 163, -87, 168, -92, 170, -92, 181, -87, 185, -86, 190, -83, 192, -69, 203, -62, 207, -57, 197, -48, 198, -35, 199, -38, 170)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-17, 226, -5, 234, 0, 232, 15, 241, 22, 235, 26, 245, 36, 249, 47, 243, 48, 229, 44, 223, -15, 192, -15, 208, -19, 212)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-9, 3)
+polygon = PackedVector2Array(-211, 301, -203, 295, -200, 283, -200, 273, -196, 271, -193, 261, -196, 253, -179, 261, -129, 234, -128, 205, -131, 202, -192, 178, -193, 172, -211, 166, -212, 196, -205, 197, -205, 216, -208, 216, -208, 226, -207, 233, -213, 227)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-6, 4)
+polygon = PackedVector2Array(-140, 252, -126, 259, -112, 251, -112, 244, -125, 237, -140, 244)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-6, 2)
+polygon = PackedVector2Array(-126, 230, -114, 237, -101, 229, -101, 217, -114, 211, -127, 218)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-21, 313, -15, 317, -5, 320, 6, 314, 9, 294, 13, 290, -27, 285, -25, 294, -23, 298, -20, 307)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(96, 231, 86, 240, 86, 253, 96, 260, 111, 261, 124, 253, 164, 274, 169, 277, 178, 284, 194, 287, 207, 285, 212, 265, 206, 253, 208, 234, 208, 228, 206, 224, 146, 200, 125, 215, 119, 217, 113, 218, 114, 223, 109, 221, 101, 228)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(5, 0)
+polygon = PackedVector2Array(108, 151, 113, 157, 124, 158, 133, 150, 136, 134, 142, 129, 102, 133, 106, 140)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(64, 227, 63, 235, 64, 236, 70, 236, 70, 231, 68, 224, 67.748, 219.715)
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-169, -63)
+polygon = PackedVector2Array(64, 227, 63, 235, 64, 236, 70, 236, 68, 231, 68, 224)
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-246, -97)
+polygon = PackedVector2Array(64, 227, 63, 235, 64, 236, 70, 236, 68, 231, 68, 224)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(137, -82)
+polygon = PackedVector2Array(64, 227, 63, 235, 64, 236, 70, 236, 70, 231, 68, 224)
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("2_rqu1d")
+
+[node name="CountdownLabel" type="Label" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_right = 3.0
+offset_bottom = 64.14
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.92549, 0, 0.14902, 1)
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelTimerLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelTimer" type="Timer" parent="UI"]
+autostart = true
+
+[node name="player" parent="." instance=ExtResource("2_u3aiy")]
+position = Vector2(-15, 242)
+script = ExtResource("5_fcfvj")
+
+[node name="Waypoints" type="Marker2D" parent="."]
+
+[node name="Point1" type="Marker2D" parent="Waypoints"]
+position = Vector2(-95, 285)
+
+[node name="Point2" type="Marker2D" parent="Waypoints"]
+position = Vector2(-82, 230)
+
+[node name="Point3" type="Marker2D" parent="Waypoints"]
+position = Vector2(-106, 196)
+
+[node name="Point4" type="Marker2D" parent="Waypoints"]
+position = Vector2(-138, 128)
+
+[node name="Point5" type="Marker2D" parent="Waypoints"]
+position = Vector2(-100, 89)
+
+[node name="Point6" type="Marker2D" parent="Waypoints"]
+position = Vector2(53, 113)
+
+[node name="Point7" type="Marker2D" parent="Waypoints"]
+position = Vector2(104, 173)
+
+[node name="Point8" type="Marker2D" parent="Waypoints"]
+position = Vector2(53, 261)
+
+[node name="quanhuyen" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_4nkto")]
+position = Vector2(-112, 283)
+patrol_points = [NodePath("../Waypoints/Point1"), NodePath("../Waypoints/Point2"), NodePath("../Waypoints/Point3"), NodePath("../Waypoints/Point4"), NodePath("../Waypoints/Point5"), NodePath("../Waypoints/Point6"), NodePath("../Waypoints/Point7"), NodePath("../Waypoints/Point8")]
+player_path = NodePath("../player")
+
+[node name="Area2D" parent="quanhuyen/VisionRoot/VisionCone" index="0" node_paths=PackedStringArray("countdown_label")]
+player_path = NodePath("../../../../player")
+countdown_label = NodePath("../../../../UI/CountdownLabel")
+
+[node name="Background Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_pa8r4")
+autoplay = true
+
+[node name="CountDownSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_15mv3")
+
+[node name="RengSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_e3sih")
+
+[editable path="player"]
+[editable path="quanhuyen"]

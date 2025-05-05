@@ -1,0 +1,168 @@
+[gd_scene load_steps=14 format=3 uid="uid://cbka0mofrj4ig"]
+
+[ext_resource type="Texture2D" uid="uid://cpu4hikv6jfwl" path="res://O_AN_QUAN/assets/level_background.png" id="1_j7xbu"]
+[ext_resource type="Script" uid="uid://bun5ftxpdxi22" path="res://O_AN_QUAN/scripts/select_level.gd" id="1_muyek"]
+[ext_resource type="Texture2D" uid="uid://c2a46y5b1dj53" path="res://O_AN_QUAN/assets/level_button.png" id="3_6org4"]
+[ext_resource type="FontFile" uid="uid://c8d2cnsglax0u" path="res://MAIN/assets/font/SVN-Retron 2000.otf" id="3_rnquj"]
+[ext_resource type="AudioStream" uid="uid://bbqkk7xr5x2if" path="res://O_AN_QUAN/assets/sounds/button.mp3" id="6_jjqxc"]
+[ext_resource type="AudioStream" uid="uid://tvprtof3r8wx" path="res://O_AN_QUAN/assets/sounds/background.mp3" id="7_uo0xe"]
+[ext_resource type="PackedScene" uid="uid://bghlte3la24n5" path="res://MAIN/scenes/ui/game_control.tscn" id="7_xum3u"]
+[ext_resource type="Script" uid="uid://dn8c1pfxp3dde" path="res://O_AN_QUAN/scripts/fade_transition.gd" id="8_xum3u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6pd22"]
+font = ExtResource("3_rnquj")
+font_size = 70
+font_color = Color(0.935985, 0.701538, 0.226012, 1)
+outline_size = 13
+outline_color = Color(0.549532, 0.284225, 0.142487, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6org4"]
+atlas = ExtResource("3_6org4")
+region = Rect2(193.996, 39.9429, 636, 279)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adu0t"]
+atlas = ExtResource("3_6org4")
+region = Rect2(193.314, 683.289, 635.537, 275.729)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pd22"]
+atlas = ExtResource("3_6org4")
+region = Rect2(194.292, 358.382, 634.348, 282.382)
+
+[sub_resource type="LabelSettings" id="LabelSettings_adu0t"]
+font = ExtResource("3_rnquj")
+font_size = 60
+font_color = Color(0.812981, 0.75799, 0.311919, 1)
+
+[node name="SelectLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_muyek")
+
+[node name="LevelBackground" type="Sprite2D" parent="."]
+position = Vector2(958.5, 552)
+scale = Vector2(1.25456, 1.11035)
+texture = ExtResource("1_j7xbu")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 630.0
+offset_top = 121.0
+offset_right = 1293.0
+offset_bottom = 226.0
+text = "Ô ĂN QUAN"
+label_settings = SubResource("LabelSettings_6pd22")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -838.0
+offset_top = 257.0
+offset_right = 1534.0
+offset_bottom = 1191.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_6org4")
+texture_pressed = SubResource("AtlasTexture_adu0t")
+texture_hover = SubResource("AtlasTexture_6pd22")
+
+[node name="Label" type="Label" parent="VBoxContainer/TextureButton"]
+layout_mode = 2
+offset_left = 190.0
+offset_top = 90.0
+offset_right = 449.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Con Mắm"
+label_settings = SubResource("LabelSettings_adu0t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_6org4")
+texture_pressed = SubResource("AtlasTexture_adu0t")
+texture_hover = SubResource("AtlasTexture_6pd22")
+
+[node name="Label" type="Label" parent="VBoxContainer/TextureButton2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 110.0
+offset_top = 90.0
+offset_right = -128.0
+offset_bottom = -745.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Thầy Hồ Đắc"
+label_settings = SubResource("LabelSettings_adu0t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton3" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_6org4")
+texture_pressed = SubResource("AtlasTexture_adu0t")
+texture_hover = SubResource("AtlasTexture_6pd22")
+
+[node name="Label" type="Label" parent="VBoxContainer/TextureButton3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 110.0
+offset_top = 90.0
+offset_right = -107.0
+offset_bottom = -745.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Trạng Quỷnh"
+label_settings = SubResource("LabelSettings_adu0t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sound_Button" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_jjqxc")
+volume_db = 15.0
+
+[node name="BackGround_Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_uo0xe")
+volume_db = 2.0
+autoplay = true
+
+[node name="Control" parent="." instance=ExtResource("7_xum3u")]
+visible = false
+layout_mode = 1
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("8_xum3u")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg6pw00aq42yl"]
+
+[ext_resource type="PackedScene" uid="uid://cdmq35u003ag4" path="res://scenes/node_2d.tscn" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://cu2xvet0aygvj" path="res://scenes/board.gd" id="1_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://bi3kfiq0de4pa" path="res://assets/sprites/cell.png" id="2_sugp2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sugp2"]
+texture = ExtResource("2_sugp2")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tbgi4"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_sugp2")
+tile_proxies/coords_level = [[0, Vector2i(0, 0)], [2, Vector2i(0, 0)], [1, Vector2i(0, 0)], [2, Vector2i(1, 0)]]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_jyhfs")
+
+[node name="TileMap" parent="." instance=ExtResource("1_0wfyh")]
+tile_set = SubResource("TileSet_tbgi4")
+script = null
+
+[node name="Pieces" type="Node2D" parent="."]
+
+[node name="move_hint" type="Node2D" parent="."]

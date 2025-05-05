@@ -1,0 +1,343 @@
+[gd_scene load_steps=20 format=3 uid="uid://r5qipqxfe6m8"]
+
+[ext_resource type="Theme" uid="uid://bpy4fqe3itb3n" path="res://NOI_CHU/assets/themes/main_theme.tres" id="1_tbgi4"]
+[ext_resource type="Script" uid="uid://dxyslbm6sg12t" path="res://NOI_CHU/scripts/GameNoiTu.gd" id="2_tefeu"]
+[ext_resource type="Script" uid="uid://dp735i2vlxj1k" path="res://NOI_CHU/scripts/Toast.gd" id="3_o6xl0"]
+[ext_resource type="Theme" uid="uid://nd3ot00kvwmv" path="res://NOI_CHU/assets/themes/toast.tres" id="4_tipki"]
+[ext_resource type="Texture2D" uid="uid://idt1ip8j5gb4" path="res://NOI_CHU/assets/pics/main backgrounds/snake.png" id="5_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://bo1hahepen61w" path="res://NOI_CHU/assets/pics/main backgrounds/layer3-4-firework.png" id="5_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://kigj4uhb2unl" path="res://NOI_CHU/assets/pics/main backgrounds/swallow.png" id="5_trceg"]
+[ext_resource type="Texture2D" uid="uid://5y4ngfurk7fm" path="res://NOI_CHU/assets/pics/main backgrounds/layer3-2-cloud.png" id="6_trceg"]
+[ext_resource type="Texture2D" uid="uid://ivvgmka8jt2g" path="res://NOI_CHU/assets/pics/main backgrounds/layer3-3-firework.png" id="7_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://bled5c38hi5g5" path="res://NOI_CHU/assets/pics/main backgrounds/layer3-1.png" id="8_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://cvo0a17c2wyp6" path="res://NOI_CHU/assets/pics/main backgrounds/layer2-2-2.png" id="9_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://ccwks3lafmn6e" path="res://NOI_CHU/assets/pics/main backgrounds/layer2-2-1.png" id="10_muem4"]
+[ext_resource type="Texture2D" uid="uid://dxmh0ev66yfpp" path="res://NOI_CHU/assets/pics/main backgrounds/layer1-1.png" id="11_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://h7clu5qwjm21" path="res://NOI_CHU/assets/pics/main backgrounds/layer0-1.png" id="14_dp3eg"]
+[ext_resource type="AudioStream" uid="uid://cubhiu1ly2ovr" path="res://NOI_CHU/assets/audio/Spring Blooms of Tet.mp3" id="15_jkv2x"]
+[ext_resource type="AudioStream" uid="uid://by6got5pc3ax1" path="res://NOI_CHU/assets/audio/ding.mp3" id="16_dp3eg"]
+[ext_resource type="AudioStream" uid="uid://cy8a413d7ngyd" path="res://NOI_CHU/assets/audio/wrong.mp3" id="17_0ld40"]
+[ext_resource type="AudioStream" uid="uid://dalt8qxfaxien" path="res://NOI_CHU/assets/audio/timeout.mp3" id="18_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://bghlte3la24n5" path="res://MAIN/scenes/ui/game_control.tscn" id="19_l0yje"]
+
+[node name="GameNoiTu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tbgi4")
+script = ExtResource("2_tefeu")
+
+[node name="MainLayout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tbgi4")
+theme_override_constants/separation = 50
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainLayout"]
+layout_mode = 2
+theme_override_constants/margin_top = 190
+
+[node name="ScoreTimerBox" type="VBoxContainer" parent="MainLayout"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ScoreLabel" type="Label" parent="MainLayout/ScoreTimerBox"]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+text = "Điểm: 0"
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="MainLayout/ScoreTimerBox"]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+text = "Thời gian: 00:20"
+horizontal_alignment = 1
+
+[node name="CurrentWordContainer" type="CenterContainer" parent="MainLayout"]
+layout_mode = 2
+
+[node name="CurrentWordLabel" type="Label" parent="MainLayout/CurrentWordContainer"]
+custom_minimum_size = Vector2(500, 70)
+layout_mode = 2
+text = "Từ hiện tại: ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputBar" type="HBoxContainer" parent="MainLayout"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="SpacerLeft" type="Control" parent="MainLayout/InputBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InputField" type="LineEdit" parent="MainLayout/InputBar"]
+custom_minimum_size = Vector2(600, 70)
+layout_mode = 2
+
+[node name="SubmitButton" type="Button" parent="MainLayout/InputBar"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+text = "Enter"
+
+[node name="SpacerRight" type="Control" parent="MainLayout/InputBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ToastContainer" type="CenterContainer" parent="MainLayout"]
+layout_mode = 2
+
+[node name="ToastLabel" type="Label" parent="MainLayout/ToastContainer"]
+custom_minimum_size = Vector2(750, 70)
+layout_mode = 2
+theme = ExtResource("4_tipki")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_o6xl0")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.133333)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background5_1" type="TextureRect" parent="Background"]
+z_index = -2
+layout_mode = 1
+offset_left = 627.0
+offset_top = 824.0
+offset_right = 1316.0
+offset_bottom = 1493.0
+rotation = 0.261938
+scale = Vector2(0.36, 0.36)
+mouse_filter = 2
+texture = ExtResource("5_a8y0u")
+stretch_mode = 6
+
+[node name="Background4_5" type="TextureRect" parent="Background"]
+z_index = -3
+layout_mode = 1
+offset_left = 1346.0
+offset_top = -34.0
+offset_right = 1982.0
+offset_bottom = 637.0
+rotation = 0.567566
+scale = Vector2(0.199999, 0.199999)
+mouse_filter = 2
+texture = ExtResource("5_trceg")
+stretch_mode = 6
+
+[node name="Background4_4" type="TextureRect" parent="Background"]
+z_index = -3
+layout_mode = 1
+offset_left = 1120.0
+offset_top = 82.0
+offset_right = 1756.0
+offset_bottom = 753.0
+rotation = 0.567566
+scale = Vector2(0.199999, 0.199999)
+mouse_filter = 2
+texture = ExtResource("5_trceg")
+stretch_mode = 6
+
+[node name="Background4_3" type="TextureRect" parent="Background"]
+z_index = -3
+layout_mode = 1
+offset_left = 1022.0
+offset_top = -61.0
+offset_right = 1658.0
+offset_bottom = 610.0
+rotation = 0.567566
+scale = Vector2(0.199999, 0.199999)
+mouse_filter = 2
+texture = ExtResource("5_trceg")
+stretch_mode = 6
+
+[node name="Background4_2" type="TextureRect" parent="Background"]
+z_index = -3
+layout_mode = 1
+offset_left = 852.0
+offset_top = 71.0
+offset_right = 1488.0
+offset_bottom = 742.0
+rotation = 0.567566
+scale = Vector2(0.199999, 0.199999)
+mouse_filter = 2
+texture = ExtResource("5_trceg")
+stretch_mode = 6
+
+[node name="Background4_1" type="TextureRect" parent="Background"]
+z_index = -3
+layout_mode = 1
+offset_left = 725.0
+offset_top = 1.0
+offset_right = 1361.0
+offset_bottom = 672.0
+rotation = 0.567566
+scale = Vector2(0.199999, 0.199999)
+mouse_filter = 2
+texture = ExtResource("5_trceg")
+stretch_mode = 6
+
+[node name="Background3_6" type="TextureRect" parent="Background"]
+z_index = -2
+layout_mode = 1
+offset_left = 1131.0
+offset_top = 1.0
+offset_right = 1247.0
+offset_bottom = 318.0
+mouse_filter = 2
+texture = ExtResource("5_eb6dy")
+stretch_mode = 6
+
+[node name="Background3_5" type="TextureRect" parent="Background"]
+z_index = -2
+layout_mode = 1
+offset_left = 1320.0
+offset_top = 632.0
+offset_right = 1618.0
+offset_bottom = 805.0
+scale = Vector2(0.550737, 0.681722)
+mouse_filter = 2
+texture = ExtResource("6_trceg")
+stretch_mode = 6
+
+[node name="Background3_4" type="TextureRect" parent="Background"]
+z_index = -2
+layout_mode = 1
+offset_left = 1045.0
+offset_top = 721.0
+offset_right = 1473.0
+offset_bottom = 1129.0
+scale = Vector2(0.550737, 0.681722)
+mouse_filter = 2
+texture = ExtResource("7_a8y0u")
+stretch_mode = 6
+
+[node name="Background3_3" type="TextureRect" parent="Background"]
+z_index = -2
+layout_mode = 1
+offset_left = 1291.0
+offset_top = 324.0
+offset_right = 1589.0
+offset_bottom = 497.0
+scale = Vector2(0.550737, 0.681722)
+mouse_filter = 2
+texture = ExtResource("6_trceg")
+stretch_mode = 6
+
+[node name="Background3_2" type="TextureRect" parent="Background"]
+z_index = -2
+layout_mode = 1
+offset_left = 483.0
+offset_top = 463.0
+offset_right = 808.0
+offset_bottom = 651.0
+scale = Vector2(0.550737, 0.681722)
+mouse_filter = 2
+texture = ExtResource("6_trceg")
+stretch_mode = 6
+
+[node name="Background3_1" type="TextureRect" parent="Background"]
+z_index = -3
+layout_mode = 0
+offset_left = 190.0
+offset_top = -1.0
+offset_right = 771.0
+offset_bottom = 895.0
+mouse_filter = 2
+texture = ExtResource("8_jkv2x")
+stretch_mode = 6
+
+[node name="Background2_2" type="TextureRect" parent="Background"]
+z_index = -2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -585.0
+offset_right = 105.0
+offset_bottom = 1024.0
+grow_horizontal = 0
+scale = Vector2(1, 1.08)
+mouse_filter = 2
+texture = ExtResource("9_jbj1t")
+stretch_mode = 6
+
+[node name="Background2_1" type="TextureRect" parent="Background"]
+z_index = -2
+layout_mode = 1
+offset_right = 540.0
+offset_bottom = 1024.0
+scale = Vector2(1.08, 1.08)
+mouse_filter = 2
+texture = ExtResource("10_muem4")
+stretch_mode = 6
+
+[node name="Background1" type="TextureRect" parent="Background"]
+visible = false
+z_index = -3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1467.0
+offset_bottom = 901.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("11_dp3eg")
+
+[node name="Background0" type="TextureRect" parent="Background"]
+z_index = -4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("14_dp3eg")
+
+[node name="APIRequest" type="HTTPRequest" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_jkv2x")
+autoplay = true
+parameters/looping = true
+
+[node name="SFXContainer" type="Node" parent="."]
+
+[node name="DingPlayer" type="AudioStreamPlayer" parent="SFXContainer"]
+stream = ExtResource("16_dp3eg")
+
+[node name="WrongPlayer" type="AudioStreamPlayer" parent="SFXContainer"]
+stream = ExtResource("17_0ld40")
+
+[node name="TimeoutPlayer" type="AudioStreamPlayer" parent="SFXContainer"]
+stream = ExtResource("18_gqmmt")
+
+[node name="Pause" parent="." instance=ExtResource("19_l0yje")]
+layout_mode = 1

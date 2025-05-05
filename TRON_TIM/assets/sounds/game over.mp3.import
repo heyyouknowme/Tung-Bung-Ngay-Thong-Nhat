@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhh5s36glv1n1"
+path="res://.godot/imported/game over.mp3-52194936e2e8e269802b9fc53522719f.mp3str"
+
+[deps]
+
+source_file="res://TRON_TIM/assets/sounds/game over.mp3"
+dest_files=["res://.godot/imported/game over.mp3-52194936e2e8e269802b9fc53522719f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

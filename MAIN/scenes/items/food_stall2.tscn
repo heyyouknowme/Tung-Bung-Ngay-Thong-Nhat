@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkywp5js6x66"]
+
+[ext_resource type="Texture2D" uid="uid://k70fdxw1hw4k" path="res://MAIN/assets/map/stalls/food/tra_front.png" id="1_js63r"]
+[ext_resource type="Texture2D" uid="uid://c8q5w1lv1jnxm" path="res://MAIN/assets/map/stalls/food/tra_back.png" id="2_21pqy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_012l7"]
+size = Vector3(3.12555, 2.85608, 0.454712)
+
+[node name="FoodStall" type="Node3D"]
+
+[node name="RigidBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0674582, 1.29898, 0.0388603)
+shape = SubResource("BoxShape3D_012l7")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51446, 0)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("1_js63r")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51446, -0.0602136)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("2_21pqy")

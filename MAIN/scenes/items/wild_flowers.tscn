@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bghv7q2s6ctx0"]
+
+[ext_resource type="Script" uid="uid://p0et1dl1cj17" path="res://MAIN/script/trees.gd" id="1_euyk1"]
+[ext_resource type="Texture2D" uid="uid://qfyagpv0170o" path="res://MAIN/assets/map/nature/wild_flower.png" id="1_w47gr"]
+
+[node name="WildFlowers" type="Node3D"]
+script = ExtResource("1_euyk1")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6837, 0)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("1_w47gr")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://de5yyfeuxtpwu"]
+
+[ext_resource type="Script" uid="uid://ct5es0esvr4cv" path="res://MAIN/script/character_body_3d.gd" id="1_rkhd4"]
+[ext_resource type="SpriteFrames" uid="uid://cg33xapcfsfqu" path="res://MAIN/assets/character/player/animation/female.tres" id="2_bdb3r"]
+[ext_resource type="SpriteFrames" uid="uid://bwb761qk4qblj" path="res://MAIN/assets/character/player/animation/male.tres" id="3_1yu0b"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1yu0b"]
+radius = 0.0869664
+height = 0.289985
+
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("camera", "sprite")]
+script = ExtResource("1_rkhd4")
+camera = NodePath("Camera3D")
+sprite = NodePath("Sprite3D")
+skins = Array[SpriteFrames]([ExtResource("2_bdb3r"), ExtResource("3_1yu0b")])
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="."]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.166072, 0)
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = ExtResource("2_bdb3r")
+animation = &"Walk_right"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0171198, 0.150536, 0.000604719)
+shape = SubResource("CapsuleShape3D_1yu0b")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01625, 0.296023, 0.399809)

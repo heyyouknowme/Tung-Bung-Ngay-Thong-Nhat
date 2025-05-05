@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxe4dwiaasxy8"]
+
+[ext_resource type="Script" uid="uid://hkpme0rkeiyq" path="res://MAIN/script/npc.gd" id="1_i4rdu"]
+[ext_resource type="SpriteFrames" uid="uid://hps81tyalew7" path="res://MAIN/assets/character/npc/animation/npc_1_front.tres" id="2_o0bl0"]
+[ext_resource type="SpriteFrames" uid="uid://c5w0vgki0fpi7" path="res://MAIN/assets/character/npc/animation/npc_1_back.tres" id="3_5xuqr"]
+[ext_resource type="PackedScene" uid="uid://d8228sow577s" path="res://MAIN/scenes/ui/dialogue_panel_npc.tscn" id="4_0qfr0"]
+[ext_resource type="Shape3D" uid="uid://b3ppqkmc2tvp6" path="res://MAIN/assets/npc.tres" id="4_ibnbt"]
+[ext_resource type="Texture2D" uid="uid://b5wqruw5qx4c2" path="res://MAIN/assets/ui/e_pointy.png" id="4_tw7y1"]
+[ext_resource type="Script" uid="uid://d04oriadas3tu" path="res://MAIN/script/dialogue_panel_npc.gd" id="5_tw7y1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cdq1g"]
+radius = 0.0658082
+height = 0.302738
+
+[node name="Npc" type="CharacterBody3D"]
+collision_mask = 0
+script = ExtResource("1_i4rdu")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.161013, 0)
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = ExtResource("2_o0bl0")
+animation = &"Walk"
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.161013, 0.00169121)
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = ExtResource("3_5xuqr")
+animation = &"Walk"
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1315, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = ExtResource("4_ibnbt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000854492, 0.154228, 0)
+shape = SubResource("CapsuleShape3D_cdq1g")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-0.015, 0, -2.26494e-09, 0, 0.015, 0, 2.26494e-09, 0, -0.015, 0, 0.358228, 0)
+visible = false
+billboard = 2
+shaded = true
+alpha_cut = 2
+render_priority = 1
+texture = ExtResource("4_tw7y1")
+
+[node name="DialoguePanel" parent="." instance=ExtResource("4_0qfr0")]
+script = ExtResource("5_tw7y1")
+
+[node name="APIRequest" type="HTTPRequest" parent="."]

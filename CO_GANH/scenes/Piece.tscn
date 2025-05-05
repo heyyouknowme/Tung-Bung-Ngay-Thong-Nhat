@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgdc1qwi57uw8"]
+
+[ext_resource type="Script" uid="uid://b1dhpfirmu8pd" path="res://scripts/piece.gd" id="1_bw3vb"]
+[ext_resource type="Texture2D" uid="uid://cj4jjdqrxr0kj" path="res://assets/sprites/highlight.png" id="2_tk1p6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx6nw"]
+size = Vector2(32, 32)
+
+[node name="Node2D" type="Area2D"]
+script = ExtResource("1_bw3vb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tx6nw")
+one_way_collision_margin = 0.0
+
+[node name="HighlightSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_tk1p6")

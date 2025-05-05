@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://drw5dx528w3bf"]
+
+[ext_resource type="FontFile" uid="uid://c8d2cnsglax0u" path="res://MAIN/assets/font/SVN-Retron 2000.otf" id="1_wckkr"]
+
+[resource]
+font = ExtResource("1_wckkr")
+font_size = 30

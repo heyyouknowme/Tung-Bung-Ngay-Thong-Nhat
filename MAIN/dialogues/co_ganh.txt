@@ -1,0 +1,6 @@
+Lâm
+Cờ Gánh là trò chơi giữa hai bên (Đỏ và Xanh), mỗi bên có 8 quân xếp trên lưới 5x5 (bỏ góc). Mục tiêu là biến toàn bộ quân đối phương thành màu của mình.
+Mỗi quân di chuyển một bước theo đường nối (ngang, dọc hoặc chéo nếu có), không được nhảy qua quân khác. 
+Nếu một quân nằm giữa hai quân địch trên cùng một đường, hai quân địch sẽ bị "gánh" và đổi màu. Nếu quân địch bị bao vây không còn nước đi, chúng bị "chẹt" và cũng bị đổi màu.
+Có thể dùng chiến thuật "Bẫy mở" để dụ đối thủ rơi vào thế gánh bắt buộc. Trò chơi kết thúc khi tất cả quân trên bàn mang cùng một màu.
+Bạn đã sẵn sàng chưa?
