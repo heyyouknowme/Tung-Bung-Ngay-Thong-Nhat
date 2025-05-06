@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bdd13m5ybqrvd"
+path="res://.godot/imported/level completed.mp3-3ad546d47831842525143c8e4078d2e1.mp3str"
+
+[deps]
+
+source_file="res://TRON_TIM/assets/sounds/level completed.mp3"
+dest_files=["res://.godot/imported/level completed.mp3-3ad546d47831842525143c8e4078d2e1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

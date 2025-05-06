@@ -1,0 +1,35 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://dn1wmapu87jt8"
+path="res://.godot/imported/SVN-Retron 2000.otf-ee1731d8665d15a5a066e8b158b4ec5d.fontdata"
+
+[deps]
+
+source_file="res://CO_GANH/assets/fonts/SVN-Retron 2000.otf"
+dest_files=["res://.godot/imported/SVN-Retron 2000.otf-ee1731d8665d15a5a066e8b158b4ec5d.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://crc4brvvyu0rd"]
+
+[ext_resource type="Texture2D" uid="uid://c6p6xrevbowls" path="res://assets/background/level 1.png" id="1_ivoc6"]
+[ext_resource type="PackedScene" uid="uid://b65qvi4bbgu4l" path="res://Tileset/player.tscn" id="2_u3aiy"]
+[ext_resource type="PackedScene" uid="uid://cu27u2f30k1vt" path="res://Tileset/quanhuyen.tscn" id="2_vsali"]
+
+[node name="level 1" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 191)
+scale = Vector2(65.6241, 65.6241)
+zoom = Vector2(1.5, 1.5)
+
+[node name="background_level1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3, 210)
+scale = Vector2(0.268519, 0.268519)
+texture = ExtResource("1_ivoc6")
+
+[node name="player" parent="." instance=ExtResource("2_u3aiy")]
+position = Vector2(-15, 242)
+
+[node name="quanhuyen" parent="." instance=ExtResource("2_vsali")]
+position = Vector2(-85, 264)
+slide_on_ceiling = false
+speed = 100.0
+patrol_points = Array[NodePath]([NodePath("../Point1"), NodePath("../Point2"), NodePath("../Point3"), NodePath("../Point4"), NodePath("../Point5"), NodePath("../Point6"), NodePath("../Point7"), NodePath("../Point8")])
+
+[node name="Point1" type="Node2D" parent="."]
+position = Vector2(-158, 153)
+
+[node name="Point2" type="Node2D" parent="."]
+position = Vector2(-32, 170)
+
+[node name="Point3" type="Node2D" parent="."]
+position = Vector2(95, 159)
+
+[node name="Point4" type="Node2D" parent="."]
+position = Vector2(162, 197)
+
+[node name="Point5" type="Node2D" parent="."]
+position = Vector2(147, 264)
+
+[node name="Point6" type="Node2D" parent="."]
+position = Vector2(68, 271)
+
+[node name="Point7" type="Node2D" parent="."]
+position = Vector2(-74, 296)
+
+[node name="Point8" type="Node2D" parent="."]
+position = Vector2(-158, 242)

@@ -1,0 +1,5 @@
+Ông Đồ
+Bạn sẽ phải đưa ra một từ có ít nhất hai âm tiết bắt đầu bằng chữ cuối cùng trong từ lúc trước đưa ra. 
+Không được phép sử dụng từ đã từng được dùng trong ván chơi, trò chơi kết thúc khi người chơi không nối được từ tiếp theo hoặc hết thời gian.
+Với mỗi từ đúng, bạn sẽ được cộng 10 điểm.
+Bạn đã sẵn sàng chưa?

@@ -1,0 +1,129 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5djx6y57v3lh"]
+
+[ext_resource type="Texture2D" uid="uid://bsid8h558ceuq" path="res://MAIN/assets/ui/pause_screen.png" id="1_r67kn"]
+[ext_resource type="Script" uid="uid://v3ak6ygjojms" path="res://MAIN/script/control.gd" id="1_tjwpk"]
+[ext_resource type="SpriteFrames" uid="uid://cg33xapcfsfqu" path="res://MAIN/assets/character/player/animation/female.tres" id="2_lpubu"]
+[ext_resource type="Theme" uid="uid://ccjbl02crsn70" path="res://MAIN/assets/control_theme.tres" id="2_r67kn"]
+[ext_resource type="SpriteFrames" uid="uid://bwb761qk4qblj" path="res://MAIN/assets/character/player/animation/male.tres" id="3_lt2xq"]
+[ext_resource type="StyleBox" uid="uid://cjd00vb5wc7vg" path="res://MAIN/assets/control_hover.tres" id="6_lpubu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_brbbq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n8aso"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8n18e"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_tjwpk")
+skins = Array[SpriteFrames]([ExtResource("2_lpubu"), ExtResource("3_lt2xq")])
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -768.0
+offset_right = 768.0
+offset_bottom = 1024.0
+grow_horizontal = 2
+texture = ExtResource("1_r67kn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -50.5
+offset_right = 44.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_r67kn")
+theme_override_constants/separation = 53
+
+[node name="ResumeButton" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_r67kn")
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_styles/hover = ExtResource("6_lpubu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_brbbq")
+text = "Resume
+"
+
+[node name="SkinOptionButton" type="OptionButton" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = ExtResource("2_r67kn")
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("6_lpubu")
+theme_override_styles/disabled_mirrored = ExtResource("6_lpubu")
+theme_override_styles/hover_pressed_mirrored = ExtResource("6_lpubu")
+theme_override_styles/hover_pressed = ExtResource("6_lpubu")
+theme_override_styles/hover_mirrored = ExtResource("6_lpubu")
+theme_override_styles/hover = ExtResource("6_lpubu")
+theme_override_styles/pressed_mirrored = ExtResource("6_lpubu")
+theme_override_styles/pressed = ExtResource("6_lpubu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n8aso")
+alignment = 1
+item_count = 2
+popup/item_0/text = "Female"
+popup/item_0/id = 1
+popup/item_1/text = "Male"
+popup/item_1/id = 0
+
+[node name="QuitButton" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("6_lpubu")
+theme_override_styles/hover_pressed = ExtResource("6_lpubu")
+theme_override_styles/hover = ExtResource("6_lpubu")
+theme_override_styles/pressed = ExtResource("6_lpubu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8n18e")
+text = "Quit
+"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(512, 752)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("3_lt2xq")
+animation = &"Idle_front"
+frame_progress = 0.956968

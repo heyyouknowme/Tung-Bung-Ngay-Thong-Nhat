@@ -1,0 +1,133 @@
+[gd_scene load_steps=10 format=3 uid="uid://fyda44m0gg40"]
+
+[ext_resource type="Texture2D" uid="uid://c6p6xrevbowls" path="res://assets/background/level 1.png" id="1_tjf41"]
+[ext_resource type="PackedScene" uid="uid://b65qvi4bbgu4l" path="res://scenes/player.tscn" id="2_4nph7"]
+[ext_resource type="Script" uid="uid://3nwlx4vpui1f" path="res://scripts/level 3/ui 3.gd" id="2_sxqav"]
+[ext_resource type="Script" uid="uid://dmy6mqfuo4vm7" path="res://scripts/level 3/player_level3.gd" id="3_8v4wr"]
+[ext_resource type="Texture2D" uid="uid://ckwapv8jfllfq" path="res://assets/sprites/light.png" id="3_ddaqk"]
+[ext_resource type="Script" uid="uid://hn3srnpbk3en" path="res://scripts/level 3/night_level3.gd" id="3_s2l8k"]
+[ext_resource type="PackedScene" uid="uid://cvliidlyqa4w5" path="res://scenes/lythong.tscn" id="6_koi1q"]
+[ext_resource type="AudioStream" uid="uid://ddhr8pu31lxwl" path="res://assets/sprites/running.mp3" id="7_ha73p"]
+[ext_resource type="Texture2D" uid="uid://cw0v1pxdx47e1" path="res://assets/sprites/visioncone3.png" id="7_lkysw"]
+
+[node name="level 3" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("2_sxqav")
+
+[node name="CountdownLabel" type="Label" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_right = 3.0
+offset_bottom = 64.14
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.92549, 0, 0.14902, 1)
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelTimerLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelTimer" type="Timer" parent="UI"]
+autostart = true
+
+[node name="StandStillLabel" type="Label" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+z_index = 1
+script = ExtResource("3_s2l8k")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 191)
+scale = Vector2(65.6241, 65.6241)
+zoom = Vector2(1.5, 1.5)
+
+[node name="background_level3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3, 210)
+scale = Vector2(0.268519, 0.268519)
+texture = ExtResource("1_tjf41")
+
+[node name="player" parent="." instance=ExtResource("2_4nph7")]
+position = Vector2(-105, 258)
+script = ExtResource("3_8v4wr")
+
+[node name="PointLight2D" type="PointLight2D" parent="player"]
+z_index = -1
+position = Vector2(9.53674e-07, 2.99999)
+scale = Vector2(0.283333, 0.275877)
+texture = ExtResource("3_ddaqk")
+
+[node name="FootstepSound" type="AudioStreamPlayer2D" parent="player"]
+stream = ExtResource("7_ha73p")
+volume_db = 13.333
+
+[node name="Waypoints" type="Marker2D" parent="."]
+position = Vector2(121, 232)
+
+[node name="Point1" type="Marker2D" parent="Waypoints"]
+position = Vector2(-274, -102)
+
+[node name="Point2" type="Marker2D" parent="Waypoints"]
+position = Vector2(-148, -85)
+
+[node name="Point3" type="Marker2D" parent="Waypoints"]
+position = Vector2(-21, -96)
+
+[node name="Point4" type="Marker2D" parent="Waypoints"]
+position = Vector2(46, -58)
+
+[node name="Point5" type="Marker2D" parent="Waypoints"]
+position = Vector2(31, 9)
+
+[node name="Point6" type="Marker2D" parent="Waypoints"]
+position = Vector2(-48, 16)
+
+[node name="Point7" type="Marker2D" parent="Waypoints"]
+position = Vector2(-190, 41)
+
+[node name="Point8" type="Marker2D" parent="Waypoints"]
+position = Vector2(-274, -13)
+
+[node name="lythong" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_koi1q")]
+position = Vector2(42, 240)
+patrol_points = [NodePath("../Waypoints/Point1"), NodePath("../Waypoints/Point2"), NodePath("../Waypoints/Point3"), NodePath("../Waypoints/Point4"), NodePath("../Waypoints/Point5"), NodePath("../Waypoints/Point6"), NodePath("../Waypoints/Point7"), NodePath("../Waypoints/Point8")]
+player_path = NodePath("../player")
+
+[node name="Area2D" parent="lythong/VisionRoot/VisionCone" index="0"]
+player_path = NodePath("../../../../player")
+countdown_label_path = NodePath("../../../../UI/CountdownLabel")
+
+[node name="CollisionShape2D" parent="lythong/VisionRoot/VisionCone/Area2D" index="0"]
+position = Vector2(128, 151)
+
+[node name="PointLight2D" type="PointLight2D" parent="lythong"]
+position = Vector2(3, 4)
+scale = Vector2(1.27, 1.0925)
+texture = ExtResource("7_lkysw")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lythong"]
+position = Vector2(-2, 3)
+scale = Vector2(0.22, 0.19)
+texture = ExtResource("3_ddaqk")
+
+[editable path="lythong"]

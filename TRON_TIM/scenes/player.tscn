@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b65qvi4bbgu4l"]
+
+[ext_resource type="SpriteFrames" uid="uid://c88dkas6iyipo" path="res://TRON_TIM/Tileset/player.tres" id="2_gfuuf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3yna"]
+size = Vector2(11, 26)
+
+[node name="player" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_gfuuf")
+animation = &"walk_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_h3yna")

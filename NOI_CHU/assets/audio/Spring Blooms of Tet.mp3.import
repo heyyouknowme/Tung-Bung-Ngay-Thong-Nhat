@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cubhiu1ly2ovr"
+path="res://.godot/imported/Spring Blooms of Tet.mp3-b146821b45e7b74bb2b56b442d36773c.mp3str"
+
+[deps]
+
+source_file="res://NOI_CHU/assets/audio/Spring Blooms of Tet.mp3"
+dest_files=["res://.godot/imported/Spring Blooms of Tet.mp3-b146821b45e7b74bb2b56b442d36773c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

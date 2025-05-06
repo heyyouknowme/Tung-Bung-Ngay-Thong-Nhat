@@ -1,0 +1,211 @@
+[gd_scene load_steps=14 format=3 uid="uid://dtldakbvg00xr"]
+
+[ext_resource type="Script" uid="uid://btk7e7eixfng1" path="res://TRON_TIM/scripts/level_select.gd" id="1_3shnc"]
+[ext_resource type="Texture2D" uid="uid://chuhmngvnl78u" path="res://TRON_TIM/assets/sprites/menu.png" id="2_p0wlc"]
+[ext_resource type="AudioStream" uid="uid://h5qgp0aelc4y" path="res://TRON_TIM/assets/sounds/intro.mp3" id="3_2epne"]
+[ext_resource type="Texture2D" uid="uid://cbb3ki1kf5uxe" path="res://TRON_TIM/assets/sprites/object menu.png" id="4_r77uv"]
+[ext_resource type="PackedScene" uid="uid://b65qvi4bbgu4l" path="res://TRON_TIM/scenes/player.tscn" id="4_rif6e"]
+[ext_resource type="Script" uid="uid://by71ivo7a4r8l" path="res://TRON_TIM/scripts/player.gd" id="5_chg43"]
+[ext_resource type="Script" uid="uid://o2wnbq4jqpxn" path="res://MAIN/script/game_control.gd" id="7_ogybo"]
+[ext_resource type="Texture2D" uid="uid://d04mex2btkvfd" path="res://MAIN/assets/ui/pause_icon.png" id="8_bos8f"]
+[ext_resource type="Texture2D" uid="uid://bt527iaapnslo" path="res://MAIN/assets/ui/pause_screen_in_game.png" id="9_1rtpr"]
+[ext_resource type="Theme" uid="uid://ccjbl02crsn70" path="res://MAIN/assets/control_theme.tres" id="10_f2ums"]
+[ext_resource type="StyleBox" uid="uid://cjd00vb5wc7vg" path="res://MAIN/assets/control_hover.tres" id="11_p8kdq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_brbbq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8n18e"]
+
+[node name="Node" type="Node"]
+
+[node name="level_select" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(3.1, 3.1)
+script = ExtResource("1_3shnc")
+
+[node name="Camera2D" type="Camera2D" parent="level_select"]
+position = Vector2(-6, 200)
+scale = Vector2(65.6241, 65.6241)
+zoom = Vector2(1.5, 1.5)
+
+[node name="background" type="Sprite2D" parent="level_select"]
+z_index = -1
+position = Vector2(5, 196)
+scale = Vector2(0.272572, 0.24128)
+texture = ExtResource("2_p0wlc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="level_select"]
+layout_mode = 0
+offset_left = -66.0
+offset_top = 236.0
+offset_right = 62.0
+offset_bottom = 302.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="level_select/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonLevel1" type="Button" parent="level_select/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ButtonLevel2" type="Button" parent="level_select/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+disabled = true
+
+[node name="CenterContainer" type="CenterContainer" parent="level_select/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonLevel3" type="Button" parent="level_select/VBoxContainer/CenterContainer"]
+layout_mode = 2
+disabled = true
+
+[node name="Intro" type="AudioStreamPlayer2D" parent="level_select"]
+stream = ExtResource("3_2epne")
+autoplay = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="level_select"]
+
+[node name="Sprite2D" type="Sprite2D" parent="level_select/StaticBody2D"]
+z_index = 1
+position = Vector2(4.50001, 194.806)
+scale = Vector2(0.273125, 0.24015)
+texture = ExtResource("4_r77uv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_select/StaticBody2D"]
+polygon = PackedVector2Array(-130, 311, -127, 298, -143, 284, -160, 290, -162, 302, -159, 310)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="level_select/StaticBody2D"]
+polygon = PackedVector2Array(-174, 190, -167, 197, -175, 217, -199, 217, -204, 198, -198, 189)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="level_select/StaticBody2D"]
+polygon = PackedVector2Array(-178, 227, -158, 227, -168, 240, -178, 234)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="level_select/StaticBody2D"]
+polygon = PackedVector2Array(-213, 230, -199, 230, -198, 238, -191, 246, -189, 252, -203, 250, -202, 242, -211, 246)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="level_select/StaticBody2D"]
+polygon = PackedVector2Array(121, 293, 104, 300, 106, 311, 142, 310, 142, 301)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="level_select/StaticBody2D"]
+polygon = PackedVector2Array(176, 234, 160, 239, 168, 262, 193, 263, 196, 254, 197, 235)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="level_select/StaticBody2D"]
+polygon = PackedVector2Array(65, 157, 61, 133, 60, 103, 87, 93, 90, 79, 55, 68, -88, 69, -128, 77, -99, 102, -97, 145, -103, 146, -103, 164, 61, 163)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="level_select/StaticBody2D"]
+polygon = PackedVector2Array(152, 120, 152, 149, 205, 169, 215, 156, 217, 140, 214, 125)
+
+[node name="player" parent="level_select" instance=ExtResource("4_rif6e")]
+position = Vector2(-93, 257)
+script = ExtResource("5_chg43")
+
+[node name="Control" type="Control" parent="."]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -662.0
+offset_top = 256.0
+offset_right = -662.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.67, 0.67)
+mouse_filter = 2
+script = ExtResource("7_ogybo")
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -8.0
+offset_right = 717.0
+offset_bottom = 1016.0
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("8_bos8f")
+texture_pressed = ExtResource("8_bos8f")
+texture_hover = ExtResource("8_bos8f")
+texture_focused = ExtResource("8_bos8f")
+
+[node name="Control" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -768.0
+offset_top = -1.49252
+offset_right = 768.0
+offset_bottom = 1022.51
+grow_horizontal = 2
+texture = ExtResource("9_1rtpr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -126.0
+offset_right = 230.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_f2ums")
+theme_override_constants/separation = 84
+
+[node name="ResumeButton" type="Button" parent="Control/Control/VBoxContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("10_f2ums")
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_styles/hover = ExtResource("11_p8kdq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_brbbq")
+text = "Resume
+"
+
+[node name="QuitButton" type="Button" parent="Control/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("11_p8kdq")
+theme_override_styles/hover_pressed = ExtResource("11_p8kdq")
+theme_override_styles/hover = ExtResource("11_p8kdq")
+theme_override_styles/pressed = ExtResource("11_p8kdq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8n18e")
+text = "Exit Game"

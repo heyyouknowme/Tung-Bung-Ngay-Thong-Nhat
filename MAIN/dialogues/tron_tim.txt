@@ -1,0 +1,9 @@
+Trạng Quỳnh
+Trong những ngày hội xuân rộn ràng, Trạng Quỳnh - người nổi tiếng thông minh, láu cá – lại gây rối khắp nơi bằng những câu nói châm biếm và trò tinh nghịch.
+Nhiệm vụ của bạn là điều khiển Trạng Quỳnh trốn thoát khỏi tầm nhìn của những kẻ truy đuổi trong mỗi màn chơi khác nhau, từ dễ đến khó.
+Hãy dùng trí thông minh, quan sát kỹ địa hình, tận dụng vật cản và tránh ánh mắt truy sát
+Mỗi màn chơi tương ứng với một cấp độ khó tăng dần: Kẻ truy đuổi có các tầm nhìn khác nhau, với bán kính và góc nhìn thay đổi. Nếu người chơi lọt vào vùng tầm nhìn và ở lại trong đó 3 giây liên tiếp, sẽ Game Over.
+Kẻ truy đuổi di chuyển theo hành vi khác nhau: Có thể tuần tra cố định, Di chuyển ngẫu nhiên, đổi hướng đột ngột. Thậm chí có khả năng phát hiện tiếng động hoặc lần theo dấu chân của người chơi.
+Người chơi phải quan sát kỹ, tận dụng vật cản, di chuyển thông minh để thoát khỏi sự truy sát
+Các cấp khác nhau sẽ có những đặc trưng riêng về địa hình và cơ chế phát hiện, Trạng Quỳnh càng cần đến sự nhanh trí và khéo léo để thoát nạn trong không khí hội xuân đầy rộn ràng nhưng cũng lắm hiểm nguy.
+Chúc bạn may mắn và trốn thoát an toàn cùng Trạng Quỳnh! Bạn đã sẵn sàng chưa?

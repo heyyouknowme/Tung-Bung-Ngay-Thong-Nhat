@@ -1,0 +1,103 @@
+[gd_scene load_steps=13 format=3 uid="uid://yuyyyk7jsqa8"]
+
+[ext_resource type="Script" uid="uid://8m6xgq4nlltc" path="res://MAIN/script/stall_owner.gd" id="1_y218e"]
+[ext_resource type="Texture2D" uid="uid://bn1otsti73umc" path="res://MAIN/assets/character/stall_owner/noi_chu.png" id="2_y218e"]
+[ext_resource type="Texture2D" uid="uid://b5wqruw5qx4c2" path="res://MAIN/assets/ui/e_pointy.png" id="3_uisyb"]
+[ext_resource type="PackedScene" uid="uid://jb40d53eq8fs" path="res://MAIN/scenes/ui/dialogue_panel.tscn" id="4_6qj4t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie1q1"]
+atlas = ExtResource("2_y218e")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uisyb"]
+atlas = ExtResource("2_y218e")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6qj4t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie1q1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uisyb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh3kh"]
+atlas = ExtResource("2_y218e")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gno0v"]
+atlas = ExtResource("2_y218e")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_osaux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh3kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gno0v")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yc4aj"]
+size = Vector3(0.402588, 0.24176, 0.248047)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b1uan"]
+size = Vector3(0.144531, 0.271484, 0.0126953)
+
+[node name="Node3D" type="CharacterBody3D"]
+script = ExtResource("1_y218e")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.161013, 0)
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_6qj4t")
+animation = &"Idle"
+autoplay = "Idle"
+frame = 1
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.161013, 0.00169121)
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_osaux")
+animation = &"Idle"
+autoplay = "Idle"
+frame = 1
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1315, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0752324)
+shape = SubResource("BoxShape3D_yc4aj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000854492, 0.154228, 0)
+shape = SubResource("BoxShape3D_b1uan")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-0.015, 0, -2.26494e-09, 0, 0.015, 0, 2.26494e-09, 0, -0.015, 0, 0.358228, 0)
+visible = false
+billboard = 2
+shaded = true
+alpha_cut = 2
+render_priority = 1
+texture = ExtResource("3_uisyb")
+
+[node name="DialoguePanel" parent="." instance=ExtResource("4_6qj4t")]
+visible = false
+target_scene_path = "res://NOI_CHU/scenes/main.tscn"

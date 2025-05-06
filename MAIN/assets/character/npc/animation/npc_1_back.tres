@@ -1,0 +1,58 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://c5w0vgki0fpi7"]
+
+[ext_resource type="Texture2D" uid="uid://bokyp0426ete4" path="res://MAIN/assets/character/npc/npc_1.png" id="1_uhe4w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjjk0"]
+atlas = ExtResource("1_uhe4w")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbst0"]
+atlas = ExtResource("1_uhe4w")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etqcq"]
+atlas = ExtResource("1_uhe4w")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pxtx"]
+atlas = ExtResource("1_uhe4w")
+region = Rect2(48, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yropg"]
+atlas = ExtResource("1_uhe4w")
+region = Rect2(64, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur721"]
+atlas = ExtResource("1_uhe4w")
+region = Rect2(80, 32, 16, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjjk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbst0")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etqcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pxtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yropg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur721")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]

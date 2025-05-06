@@ -1,0 +1,176 @@
+[gd_scene load_steps=15 format=3 uid="uid://b4ybk3ysnuoaj"]
+
+[ext_resource type="Script" uid="uid://b1iofheligqrd" path="res://O_AN_QUAN/scripts/end_game.gd" id="1_i47uf"]
+[ext_resource type="Texture2D" uid="uid://c2a46y5b1dj53" path="res://O_AN_QUAN/assets/level_button.png" id="2_3w24k"]
+[ext_resource type="FontFile" uid="uid://c8d2cnsglax0u" path="res://MAIN/assets/font/SVN-Retron 2000.otf" id="2_ihqxv"]
+[ext_resource type="AudioStream" uid="uid://bbqkk7xr5x2if" path="res://O_AN_QUAN/assets/sounds/button.mp3" id="4_ho1j5"]
+[ext_resource type="AudioStream" uid="uid://bmrycxef8fanw" path="res://O_AN_QUAN/assets/sounds/win.mp3" id="5_w2lcc"]
+[ext_resource type="AudioStream" uid="uid://ci270ace8q7x8" path="res://O_AN_QUAN/assets/sounds/lose.mp3" id="6_t0qxb"]
+[ext_resource type="AudioStream" uid="uid://eyc10vv0wjr1" path="res://O_AN_QUAN/assets/sounds/draw.mp3" id="7_70qol"]
+[ext_resource type="Script" uid="uid://dn8c1pfxp3dde" path="res://O_AN_QUAN/scripts/fade_transition.gd" id="8_oxb4k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hw18e"]
+font = ExtResource("2_ihqxv")
+font_size = 70
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.686275)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ho1j5"]
+font = ExtResource("2_ihqxv")
+font_size = 50
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.956863)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw18e"]
+atlas = ExtResource("2_3w24k")
+region = Rect2(193.996, 39.9429, 636, 279)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho1j5"]
+atlas = ExtResource("2_3w24k")
+region = Rect2(193.314, 683.289, 635.537, 275.729)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2lcc"]
+atlas = ExtResource("2_3w24k")
+region = Rect2(194.292, 358.382, 634.348, 282.382)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w2lcc"]
+font = ExtResource("2_ihqxv")
+font_size = 80
+font_color = Color(0.812981, 0.75799, 0.311919, 1)
+
+[node name="EndGame" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_i47uf")
+
+[node name="BackgroundRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 686.0
+offset_top = 295.0
+offset_right = 1251.0
+offset_bottom = 685.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResultLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+label_settings = SubResource("LabelSettings_hw18e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerScoreLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+label_settings = SubResource("LabelSettings_ho1j5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AIScoreLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+label_settings = SubResource("LabelSettings_ho1j5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 684.0
+offset_top = 700.0
+offset_right = 2131.0
+offset_bottom = 979.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+size_flags_vertical = 3
+
+[node name="RetryButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_hw18e")
+texture_pressed = SubResource("AtlasTexture_ho1j5")
+texture_hover = SubResource("AtlasTexture_w2lcc")
+
+[node name="Label" type="Label" parent="HBoxContainer/RetryButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Chơi lại "
+label_settings = SubResource("LabelSettings_w2lcc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BackButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_hw18e")
+texture_pressed = SubResource("AtlasTexture_ho1j5")
+texture_hover = SubResource("AtlasTexture_w2lcc")
+
+[node name="Label2" type="Label" parent="HBoxContainer/BackButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Về sảnh"
+label_settings = SubResource("LabelSettings_w2lcc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sound_Button" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ho1j5")
+volume_db = 15.0
+
+[node name="Sound_Win" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_w2lcc")
+
+[node name="Sound_Lose" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_t0qxb")
+
+[node name="Sound_Draw" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_70qol")
+volume_db = 5.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 2
+offset_left = 1006.8
+offset_top = 700.0
+offset_right = 1006.8
+offset_bottom = 979.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("8_oxb4k")
+
+[connection signal="pressed" from="HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

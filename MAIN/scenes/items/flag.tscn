@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://36fgv1syspwp"]
+
+[ext_resource type="Texture2D" uid="uid://dcakjmyddf1ab" path="res://MAIN/assets/map/man_made/flag.png" id="1_8mexd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l4vej"]
+size = Vector3(12.9747, 3.15173, 0.365967)
+
+[node name="Bush" type="Node3D"]
+
+[node name="RigidBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0292053, 1.07587, -0.119995)
+shape = SubResource("BoxShape3D_l4vej")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27575, 0)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("1_8mexd")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdmq35u003ag4"]
+
+[ext_resource type="Script" uid="uid://cu2xvet0aygvj" path="res://scenes/board.gd" id="1_4dvvg"]
+[ext_resource type="Texture2D" uid="uid://bi3kfiq0de4pa" path="res://assets/sprites/cell.png" id="1_rnjyy"]
+[ext_resource type="Script" uid="uid://j0x06c4krmi0" path="res://scripts/pieces.gd" id="3_rnjyy"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rnjyy"]
+texture = ExtResource("1_rnjyy")
+texture_region_size = Vector2i(64, 64)
+1:0/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_04qyp"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_rnjyy")
+tile_proxies/coords_level = [[0, Vector2i(0, 0)], [2, Vector2i(0, 0)], [1, Vector2i(0, 0)], [2, Vector2i(1, 0)]]
+
+[node name="Node2D" type="TileMap"]
+tile_set = SubResource("TileSet_04qyp")
+format = 2
+script = ExtResource("1_4dvvg")
+
+[node name="Pieces" type="Node2D" parent="."]
+script = ExtResource("3_rnjyy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pieces"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkve5lfcxch45"
+path="res://.godot/imported/level 1.mp3-c8b94c95bc72920803515ec2865ae4c9.mp3str"
+
+[deps]
+
+source_file="res://TRON_TIM/assets/sounds/level 1.mp3"
+dest_files=["res://.godot/imported/level 1.mp3-c8b94c95bc72920803515ec2865ae4c9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://co7kbcbty3xu1"]
+
+[ext_resource type="Texture2D" uid="uid://w8q0e80b6b0l" path="res://MAIN/assets/map/nature/rock_rough.png" id="1_khi28"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g88us"]
+size = Vector3(11.1619, 8.48059, 1)
+
+[node name="Rock" type="Node3D"]
+
+[node name="RigidBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.154663, 3.7403, 0)
+shape = SubResource("BoxShape3D_g88us")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.30571, 0)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("1_khi28")

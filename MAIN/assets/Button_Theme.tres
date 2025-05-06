@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://brufdwpn0cq4i"]
+
+[ext_resource type="FontFile" uid="uid://c8d2cnsglax0u" path="res://MAIN/assets/font/SVN-Retron 2000.otf" id="1_lr8i1"]
+
+[resource]
+default_font = ExtResource("1_lr8i1")
+default_font_size = 30

@@ -1,0 +1,4 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+EXPORT/tung_bung_ngay_thong_nhat.pck

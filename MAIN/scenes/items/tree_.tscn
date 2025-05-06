@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://s5a0folhl111"]
+
+[ext_resource type="Texture2D" uid="uid://gxe0a43ss314" path="res://MAIN/assets/map/nature/tree_curved.png" id="1_x301o"]
+[ext_resource type="Script" uid="uid://p0et1dl1cj17" path="res://MAIN/script/trees.gd" id="2_8kjww"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8kjww"]
+size = Vector3(1.21826, 9.83899, 0.395142)
+
+[node name="Tree" type="Node3D"]
+script = ExtResource("2_8kjww")
+
+[node name="RigidBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.109131, 4.41949, 0.0286255)
+shape = SubResource("BoxShape3D_8kjww")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.39216, 0)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("1_x301o")
