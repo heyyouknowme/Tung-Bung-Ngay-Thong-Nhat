@@ -58,6 +58,10 @@ func _ready():
 
 	if dialogue_box and dialogue_box.has_signal("dialogue_closed"):
 		dialogue_box.dialogue_closed.connect(_on_dialogue_closed)
+		
+	var result = api.request_completed.connect(_on_api_response, CONNECT_ONE_SHOT)
+	print(result)
+
 	_reset_conver()
 
 
@@ -262,8 +266,8 @@ func api_call(path: String, body: Variant, callback: Callable):
 		payload = json_data
 	var error = api.request(SERVER_URL + path, headers, method, payload)
 	print("Request status:", error)
-	var result = api.request_completed.connect(_on_api_response, CONNECT_ONE_SHOT)
-	print(result)
+	#var result = api.request_completed.connect(_on_api_response, CONNECT_ONE_SHOT)
+	#print(result)
 
 func _on_api_response(result, code, headers, body):
 	print("Response received")

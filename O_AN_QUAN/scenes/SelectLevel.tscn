@@ -152,7 +152,6 @@ volume_db = 2.0
 autoplay = true
 
 [node name="Control" parent="." instance=ExtResource("7_xum3u")]
-visible = false
 layout_mode = 1
 
 [node name="ColorRect2" type="ColorRect" parent="."]

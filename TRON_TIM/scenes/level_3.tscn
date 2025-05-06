@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://fyda44m0gg40"]
+[gd_scene load_steps=34 format=3 uid="uid://fyda44m0gg40"]
 
 [ext_resource type="LabelSettings" uid="uid://nwjpolhe538" path="res://TRON_TIM/assets/fonts/new_label_settings.tres" id="2_2vp17"]
 [ext_resource type="PackedScene" uid="uid://b65qvi4bbgu4l" path="res://TRON_TIM/scenes/player.tscn" id="2_4nph7"]
@@ -25,6 +25,9 @@
 [ext_resource type="Texture2D" uid="uid://bt527iaapnslo" path="res://MAIN/assets/ui/pause_screen_in_game.png" id="22_jeabc"]
 [ext_resource type="Theme" uid="uid://ccjbl02crsn70" path="res://MAIN/assets/control_theme.tres" id="23_t1g6k"]
 [ext_resource type="StyleBox" uid="uid://cjd00vb5wc7vg" path="res://MAIN/assets/control_hover.tres" id="24_h5r3p"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2vp17"]
+light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b14vb"]
 light_mode = 1
@@ -170,6 +173,7 @@ texture = ExtResource("3_ddaqk")
 
 [node name="SuspiciousIcon" type="Sprite2D" parent="level 3/lythong"]
 visible = false
+material = SubResource("CanvasItemMaterial_2vp17")
 position = Vector2(16, -10)
 scale = Vector2(0.0273437, 0.0273437)
 texture = ExtResource("18_8uepa")
