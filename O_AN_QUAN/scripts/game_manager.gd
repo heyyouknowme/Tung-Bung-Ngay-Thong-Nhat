@@ -335,16 +335,24 @@ func regenerate_dan(player: String) -> void:
 	update_board()
 
 func collect_remaining_quan():
+	var capture_slot_node_left = get_node("/root/main/Board/CapturedSlotLeft")
+	var capture_slot_node_right = get_node("/root/main/Board/CapturedSlotRight")
 	for i in range(1, 6):
-		#await get_tree().create_timer(0.5).timeout
-		#add_to_captured_slot("left", i, board[i].count, board[i].type)
-		score["left"] += board[i].count
-		board[i].count = 0
+		if(board[i].count > 0):
+			board[i].animate_capture(capture_slot_node_left.global_position)
+			await get_tree().create_timer(0.5).timeout
+			add_to_captured_slot("left", i, board[i].count, board[i].type)
+			score["left"] += board[i].count
+			board[i].count = 0
+			update_board()
 	for i in range(7, 12):
-		#await get_tree().create_timer(0.5).timeout
-		#add_to_captured_slot("right", i, board[i].count, board[i].type)
-		score["right"] += board[i].count
-		board[i].count = 0
+		if(board[i].count > 0):
+			board[i].animate_capture(capture_slot_node_right.global_position)
+			await get_tree().create_timer(0.5).timeout
+			add_to_captured_slot("right", i, board[i].count, board[i].type)
+			score["right"] += board[i].count
+			board[i].count = 0
+			update_board()
 
 func update_score_display():
 	get_node("/root/main/CanvasLayer/LeftScoreLabel").text = "Điểm của bạn: %d" % score["left"]
