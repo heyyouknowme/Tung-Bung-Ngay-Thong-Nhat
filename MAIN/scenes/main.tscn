@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://l6oa5gn8j17i"]
+[gd_scene load_steps=25 format=3 uid="uid://l6oa5gn8j17i"]
 
+[ext_resource type="Script" uid="uid://bth2glfw0bigc" path="res://MAIN/script/main.gd" id="1_3crhg"]
 [ext_resource type="Texture2D" uid="uid://dgqge3sd07pt0" path="res://MAIN/assets/map/ground/ground_map.png" id="1_85g3d"]
 [ext_resource type="Texture2D" uid="uid://dwgog2a8e3qas" path="res://MAIN/assets/map/ground/ground_normal_map.png" id="2_choun"]
 [ext_resource type="PackedScene" uid="uid://de5yyfeuxtpwu" path="res://MAIN/scenes/Characters/character.tscn" id="3_ya4ey"]
@@ -52,6 +53,7 @@ glow_enabled = true
 glow_intensity = 0.2
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_3crhg")
 
 [node name="PatrolPoints" type="Node3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.993405, -0.695913, 62)

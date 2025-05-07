@@ -346,3 +346,5 @@ stream = ExtResource("18_gqmmt")
 
 [node name="Pause" parent="." instance=ExtResource("19_l0yje")]
 layout_mode = 1
+
+[connection signal="pressed" from="MainLayout/InputBar/SubmitButton" to="." method="_on_submit_button_pressed"]

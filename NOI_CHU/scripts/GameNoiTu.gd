@@ -36,7 +36,6 @@ func _ready():
 	timer.wait_time = 1.0
 	timer.timeout.connect(_on_timer_tick)
 	word_input.text_submitted.connect(_on_word_submitted)
-	submit_button.pressed.connect(_on_word_submitted.bind(word_input.text))
 	word_input.grab_focus()
 	start_new_game()
 
@@ -214,3 +213,7 @@ func validate_pair(word1: String, word2: String) -> bool:
 
 func show_toast(message: String):
 	toast_label.show_message(message)
+
+
+func _on_submit_button_pressed() -> void:
+	_on_word_submitted(word_input.text)

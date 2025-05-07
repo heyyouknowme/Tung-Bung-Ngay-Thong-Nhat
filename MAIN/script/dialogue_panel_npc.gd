@@ -43,7 +43,15 @@ func start_from_file(path: String):
 		GameData.is_dialogue_open = true
 		start_dialogue()
 
+func start_dialogue_timer():
+	for i in range(1, 20):
+		print(i)
+		await get_tree().create_timer(1).timeout
+	print("✅ Dialogue timer done!")
+	_finish()
+
 func start_dialogue():
+	start_dialogue_timer()
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		player.can_move = false

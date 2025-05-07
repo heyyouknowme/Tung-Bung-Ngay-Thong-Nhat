@@ -48,6 +48,8 @@ func start_from_file(path: String):
 		GameData.is_dialogue_open = true
 		start_dialogue()
 
+
+
 func start_dialogue():
 	if player:
 		player.can_move = false

@@ -31,6 +31,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1928.0
 offset_bottom = 1080.0
+mouse_filter = 1
 script = ExtResource("1_5n300")
 
 [node name="TextureRect" type="TextureRect" parent="."]
