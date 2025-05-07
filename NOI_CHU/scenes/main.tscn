@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://by6got5pc3ax1" path="res://NOI_CHU/assets/audio/ding.mp3" id="16_dp3eg"]
 [ext_resource type="AudioStream" uid="uid://cy8a413d7ngyd" path="res://NOI_CHU/assets/audio/wrong.mp3" id="17_0ld40"]
 [ext_resource type="AudioStream" uid="uid://dalt8qxfaxien" path="res://NOI_CHU/assets/audio/timeout.mp3" id="18_gqmmt"]
-[ext_resource type="PackedScene" uid="uid://bghlte3la24n5" path="res://MAIN/scenes/game_control.tscn" id="19_l0yje"]
+[ext_resource type="PackedScene" uid="uid://bghlte3la24n5" path="res://MAIN/scenes/ui/game_control.tscn" id="19_l0yje"]
 
 [node name="GameNoiTu" type="Control"]
 layout_mode = 3

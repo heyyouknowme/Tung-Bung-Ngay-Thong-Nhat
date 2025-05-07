@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1746613297|592439386';
+const CACHE_VERSION = '1746616842|164988182';
 /** @type {string} */
 const CACHE_PREFIX = 'tung_bung_ngay_t-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
