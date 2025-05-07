@@ -44,7 +44,7 @@ func start_from_file(path: String):
 		start_dialogue()
 
 func start_dialogue_timer():
-	for i in range(1, 20):
+	for i in range(1, 10):
 		print(i)
 		await get_tree().create_timer(1).timeout
 	print("✅ Dialogue timer done!")
