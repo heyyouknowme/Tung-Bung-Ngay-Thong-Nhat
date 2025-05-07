@@ -1,14 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddneexssqfhk2"]
+[gd_scene load_steps=5 format=3 uid="uid://ddneexssqfhk2"]
 
 [ext_resource type="Script" uid="uid://djq064s0t5nbh" path="res://O_AN_QUAN/scripts/board_slot.gd" id="1_yo1gl"]
-[ext_resource type="FontFile" uid="uid://ctmw7es0q6q2a" path="res://O_AN_QUAN/assets/UTM Azuki.ttf" id="2_7s4xt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yo1gl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7s4xt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_udxdx"]
-font = ExtResource("2_7s4xt")
 font_size = 20
 
 [node name="BoardSlot" type="Button"]

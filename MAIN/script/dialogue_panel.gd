@@ -5,9 +5,9 @@ extends Control
 @onready var choice_box: HBoxContainer = $ChoiceBox
 @onready var selector: TextureRect = $Selector
 @onready var buttons := [
-	$ChoiceBox/YesButton,
+	$ChoiceBox/NoButton,
 	$ChoiceBox/AgainButton,
-	$ChoiceBox/NoButton
+	$ChoiceBox/YesButton
 ]
 
 @export var target_scene_path: String = "res://path/to/next_scene.tscn"
@@ -16,12 +16,14 @@ var lines: PackedStringArray = []
 var current_line := 0
 var is_playing := false
 var choice_active := false
-var selected_index := 0
+var selected_index := 2
 var player
 signal dialogue_closed
 
 
 func _ready():
+	
+
 	choice_box.visible = false
 	selector.visible = false
 	selector.z_index = 100  # ✅ Ensure it's above all buttons
@@ -82,7 +84,9 @@ func show_choices():
 	choice_active = true
 	choice_box.visible = true
 
-	selected_index = 0
+	selected_index = 2
+	selector.global_position = Vector2(1073, 976)
+
 	selector.visible = true
 
 	
@@ -118,17 +122,17 @@ func _input(event: InputEvent):
 		return
 		
 	if event.is_action_pressed("walk_right") or event.is_action_pressed("ui_left"):
-		selected_index = (selected_index - 1 + buttons.size()) % buttons.size()
+		selected_index = (selected_index + 1) % buttons.size()
 		update_selector_position()
 	elif event.is_action_pressed("walk_left") or event.is_action_pressed("ui_right"):
-		selected_index = (selected_index + 1) % buttons.size()
+		selected_index = (selected_index - 1) % buttons.size()
 		update_selector_position()
 	elif event.is_action_pressed("interact"):
 		print("✅ Pressed Interact on index:", selected_index)
 		match selected_index:
-			0: on_yes_selected()
+			2: on_yes_selected()
 			1: on_again_selected()
-			2: on_no_selected()
+			0: on_no_selected()
 	elif event.is_action_pressed("ui_cancel"):
 		print("🔙 Cancel (ESC) pressed")
 		finish()
@@ -157,7 +161,7 @@ func on_again_selected():
 	choice_active = false
 	visible = true
 	choice_box.visible = false
-	selected_index = 0
+	selected_index = 2
 	update_selector_position()
 	selector.visible = false
 
@@ -178,10 +182,13 @@ func finish():
 	is_playing = false
 	choice_active = false
 	visible = false
+	selected_index = 2
+	selector.global_position = Vector2(1073, 976)
 	choice_box.visible = false
 	selector.visible = false
 	label.text = ""
 	title.text = ""
+
 
 	if Input.is_action_just_pressed("ui_cancel"):
 		emit_signal("dialogue_closed")

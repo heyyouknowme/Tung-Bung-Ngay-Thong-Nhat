@@ -21,11 +21,13 @@ var patrol_parent: Node3D
 var last_point: Node3D = null
 var was_moving := false
 var is_choosing_next_point := false
+var is_requesting := false
 var turn_tween: Tween = null
 var stuck_timer := 0.0
 var previous_distance := INF
 var is_player_inside := false
 var just_closed := false
+var just_got := false
 var dialogue_file_path := ""
 
 func _ready():
@@ -59,8 +61,7 @@ func _ready():
 	if dialogue_box and dialogue_box.has_signal("dialogue_closed"):
 		dialogue_box.dialogue_closed.connect(_on_dialogue_closed)
 		
-	var result = api.request_completed.connect(_on_api_response, CONNECT_ONE_SHOT)
-	print(result)
+
 
 	_reset_conver()
 
@@ -194,8 +195,8 @@ func _input(event: InputEvent):
 				var reached_end = dialogue_box.start_from_text(text)
 
 func _reset_conver():
-	while GameData.is_dialogue_open:
-		await get_tree().process_frame
+	while GameData.is_dialogue_open and is_player_inside:
+		await get_tree().create_timer(1).timeout
 	var file := FileAccess.open(dialogue_file_path, FileAccess.READ)
 	if file:
 		file.close()
@@ -210,6 +211,8 @@ func _reset_conver():
 		else:
 			text = npc_name + "\n Chúc bạn ngày vui vẻ!" 
 	)
+	
+	
 func _on_Area3D_body_entered(body: Node):
 	if body.is_in_group("player"):
 		is_player_inside = true
@@ -232,6 +235,11 @@ func start_close_cooldown():
 	await get_tree().create_timer(0.2).timeout
 	just_closed = false
 	print("✅ Short cooldown ended")
+	
+#func start_http_cooldown():
+	#await get_tree().create_timer(1).timeout
+	#just_got = false
+	#print("✅ Short cooldown ended")
 
 func start_dialogue_cooldown():
 	await get_tree().create_timer(1.0).timeout
@@ -254,6 +262,9 @@ func face_player():
 		
 		
 func api_call(path: String, body: Variant, callback: Callable):
+	if is_requesting:
+		print("Already processing a request.")
+		return
 	last_callback = callback  # Lưu lại để gọi sau khi có kết quả
 
 	var headers = ["Content-Type: application/json"]
@@ -264,12 +275,21 @@ func api_call(path: String, body: Variant, callback: Callable):
 	if body != {}:
 		method = HTTPClient.METHOD_POST
 		payload = json_data
-	var error = api.request(SERVER_URL + path, headers, method, payload)
-	print("Request status:", error)
+	if not api.is_connected("request_completed", Callable(self, "_on_api_response")):
+		var result = api.request_completed.connect(_on_api_response, CONNECT_ONE_SHOT)
+		print(result)
+	is_requesting = true
+	var err = api.request(SERVER_URL + path, headers, method, payload)
+	if err != OK:
+		is_requesting = false
+		print("Request failed to start.")
+	else:
+		print("Request started.")
 	#var result = api.request_completed.connect(_on_api_response, CONNECT_ONE_SHOT)
 	#print(result)
 
 func _on_api_response(result, code, headers, body):
+	is_requesting = false
 	print("Response received")
 	print("Result code: ", result)
 	print("HTTP code: ", code)

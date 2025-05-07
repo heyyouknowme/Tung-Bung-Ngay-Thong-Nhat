@@ -1,23 +1,35 @@
-[gd_scene load_steps=25 format=3 uid="uid://crc4brvvyu0rd"]
+[gd_scene load_steps=31 format=3 uid="uid://crc4brvvyu0rd"]
 
 [ext_resource type="Texture2D" uid="uid://kyvf6p4mj3fs" path="res://TRON_TIM/assets/sprites/bg level 11111111.png" id="1_2os1m"]
 [ext_resource type="Texture2D" uid="uid://bmxxa5eiguad4" path="res://TRON_TIM/assets/sprites/okkkkkkkkk.png" id="2_2os1m"]
 [ext_resource type="Script" uid="uid://p7jl7bks5gqx" path="res://TRON_TIM/scripts/level 1/ui.gd" id="2_rqu1d"]
-[ext_resource type="PackedScene" uid="uid://b65qvi4bbgu4l" path="res://TRON_TIM/scenes/player.tscn" id="2_u3aiy"]
 [ext_resource type="Script" uid="uid://cjwrexs5vqi4" path="res://TRON_TIM/scripts/countdown_label.gd" id="4_2os1m"]
-[ext_resource type="LabelSettings" uid="uid://nwjpolhe538" path="res://TRON_TIM/assets/fonts/new_label_settings.tres" id="4_76u65"]
-[ext_resource type="PackedScene" uid="uid://cu27u2f30k1vt" path="res://TRON_TIM/scenes/quanhuyen.tscn" id="5_4nkto"]
 [ext_resource type="Script" uid="uid://b7k63anibjh77" path="res://TRON_TIM/scripts/level 1/player_walk.gd" id="5_fcfvj"]
-[ext_resource type="LabelSettings" uid="uid://blhg8lrnl3cjq" path="res://TRON_TIM/assets/red.tres" id="6_6kd5f"]
+[ext_resource type="LabelSettings" uid="uid://cbiawuv7wb0ee" path="res://_SHARED ASSETS/font/red.tres" id="6_6kd5f"]
+[ext_resource type="LabelSettings" uid="uid://blhg8lrnl3cjq" path="res://_SHARED ASSETS/font/black.tres" id="6_qmu2a"]
 [ext_resource type="AudioStream" uid="uid://bkve5lfcxch45" path="res://TRON_TIM/assets/sounds/level 1.mp3" id="7_pa8r4"]
 [ext_resource type="AudioStream" uid="uid://bmcf11s3qxjk1" path="res://TRON_TIM/assets/sounds/countdown.mp3" id="8_15mv3"]
+[ext_resource type="SpriteFrames" uid="uid://c88dkas6iyipo" path="res://TRON_TIM/animations/player.tres" id="8_ojsc7"]
 [ext_resource type="AudioStream" uid="uid://bhscokfl3suka" path="res://TRON_TIM/assets/sounds/reng hết giờ.mp3" id="9_e3sih"]
+[ext_resource type="Script" uid="uid://b4wqmeyfkxecp" path="res://TRON_TIM/scripts/level 1/quanhuyen.gd" id="9_kh4rb"]
 [ext_resource type="AudioStream" uid="uid://bhobyhawe16ud" path="res://TRON_TIM/assets/sounds/warning.mp3" id="10_2y5yt"]
+[ext_resource type="SpriteFrames" uid="uid://o30wjpp5n3hd" path="res://TRON_TIM/animations/quanhuyen.tres" id="10_rix1q"]
+[ext_resource type="Texture2D" uid="uid://dtyhfueqg6xho" path="res://TRON_TIM/assets/sprites/visioncone.png" id="11_ts7b8"]
+[ext_resource type="Script" uid="uid://bgmfcb7s3g52m" path="res://TRON_TIM/scripts/level 1/vision_area.gd" id="12_h5gra"]
 [ext_resource type="Script" uid="uid://o2wnbq4jqpxn" path="res://MAIN/script/game_control.gd" id="13_qsdy7"]
 [ext_resource type="Texture2D" uid="uid://d04mex2btkvfd" path="res://MAIN/assets/ui/pause_icon.png" id="14_6kd5f"]
 [ext_resource type="Texture2D" uid="uid://bt527iaapnslo" path="res://MAIN/assets/ui/pause_screen_in_game.png" id="15_a8q3s"]
 [ext_resource type="Theme" uid="uid://ccjbl02crsn70" path="res://MAIN/assets/control_theme.tres" id="16_vlr7r"]
 [ext_resource type="StyleBox" uid="uid://cjd00vb5wc7vg" path="res://MAIN/assets/control_hover.tres" id="17_qmu2a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3yna"]
+size = Vector2(11, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1eld"]
+size = Vector2(9, 25)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_dnby7"]
+points = PackedVector2Array(33, 43, -101, -39, -98, 87)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsdy7"]
 size = Vector2(438.387, 20.9677)
@@ -119,7 +131,7 @@ offset_bottom = 64.14
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0.92549, 0, 0.14902, 1)
 theme_override_font_sizes/font_size = 30
-label_settings = ExtResource("4_76u65")
+label_settings = ExtResource("6_6kd5f")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_2os1m")
@@ -130,15 +142,23 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 60.0
 offset_bottom = 43.0
-label_settings = ExtResource("6_6kd5f")
+label_settings = ExtResource("6_qmu2a")
 metadata/_edit_use_anchors_ = true
 
 [node name="LevelTimer" type="Timer" parent="level 1/UI"]
 autostart = true
 
-[node name="player" parent="level 1" instance=ExtResource("2_u3aiy")]
+[node name="player" type="CharacterBody2D" parent="level 1"]
 position = Vector2(-10.8065, 242)
 script = ExtResource("5_fcfvj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="level 1/player"]
+sprite_frames = ExtResource("8_ojsc7")
+animation = &"walk_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 1/player"]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_h3yna")
 
 [node name="Waypoints" type="Marker2D" parent="level 1"]
 
@@ -166,18 +186,42 @@ position = Vector2(94, 168)
 [node name="Point8" type="Marker2D" parent="level 1/Waypoints"]
 position = Vector2(53, 261)
 
-[node name="quanhuyen" parent="level 1" node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_4nkto")]
+[node name="quanhuyen" type="CharacterBody2D" parent="level 1" node_paths=PackedStringArray("patrol_points")]
 position = Vector2(-112, 283)
+script = ExtResource("9_kh4rb")
 patrol_points = [NodePath("../Waypoints/Point1"), NodePath("../Waypoints/Point2"), NodePath("../Waypoints/Point3"), NodePath("../Waypoints/Point4"), NodePath("../Waypoints/Point5"), NodePath("../Waypoints/Point6"), NodePath("../Waypoints/Point7"), NodePath("../Waypoints/Point8")]
 player_path = NodePath("../player")
 
-[node name="VisionCone" parent="level 1/quanhuyen/VisionRoot" index="0"]
-offset_left = -150.0
-offset_right = 0.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 1/quanhuyen"]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_u1eld")
 
-[node name="Area2D" parent="level 1/quanhuyen/VisionRoot/VisionCone" index="0" node_paths=PackedStringArray("countdown_label")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="level 1/quanhuyen"]
+sprite_frames = ExtResource("10_rix1q")
+animation = &"walk_up"
+
+[node name="VisionRoot" type="Node2D" parent="level 1/quanhuyen"]
+position = Vector2(1, 0)
+
+[node name="VisionCone" type="TextureRect" parent="level 1/quanhuyen/VisionRoot"]
+z_index = -1
+offset_left = -150.0
+offset_top = -88.0
+offset_bottom = 52.0
+size_flags_horizontal = 0
+texture = ExtResource("11_ts7b8")
+expand_mode = 5
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="level 1/quanhuyen/VisionRoot/VisionCone" node_paths=PackedStringArray("countdown_label")]
+position = Vector2(96, 24)
+script = ExtResource("12_h5gra")
 player_path = NodePath("../../../../player")
 countdown_label = NodePath("../../../../UI/CountdownLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 1/quanhuyen/VisionRoot/VisionCone/Area2D"]
+position = Vector2(23, 22)
+shape = SubResource("ConvexPolygonShape2D_dnby7")
 
 [node name="Background Music" type="AudioStreamPlayer2D" parent="level 1"]
 stream = ExtResource("7_pa8r4")
@@ -321,5 +365,4 @@ theme_override_styles/pressed = ExtResource("17_qmu2a")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kh4rb")
 text = "Exit Game"
 
-[editable path="level 1/player"]
-[editable path="level 1/quanhuyen"]
+[connection signal="body_entered" from="level 1/quanhuyen/VisionRoot/VisionCone/Area2D" to="level 1/quanhuyen" method="_on_area_2d_body_entered"]

@@ -54,7 +54,7 @@ func _ready():
 	$ColorRect.visible = false
 	$Player.visible = false
 	$Point.visible = false
-	$CanvasLayer.visible = false 
+	$CanvasLayer.visible = true 
 	
 	bot_select_layer.bot_selected.connect(_on_bot_selected)
 	
@@ -69,7 +69,6 @@ func _on_bot_selected(level: int):
 	Bot.difficulty_level = level
 	cur_level = level
 	# Ẩn màn chọn bot
-	$Control.visible = true 
 	bot_select_layer.visible = false
 	bot_select.stop()
 	# Hiện bàn cờ
@@ -127,7 +126,7 @@ func show_bot_info(level: int):
 	name_label.text = name + " (level" + str(level) + ")"
 	name_label.set("theme_override_colors/font_color", Color.BLACK)
 	name_label.set("theme_override_font_sizes/font_size", 30)
-	var custom_font = preload("res://CO_GANH/assets/fonts/SVN-Retron 2000.otf")
+	var custom_font = preload("res://_SHARED ASSETS/font/SVN-Retron 2000.otf")
 	name_label.set("theme_override_fonts/font", custom_font)
 
 	add_child(name_label)

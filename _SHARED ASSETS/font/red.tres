@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cbiawuv7wb0ee"]
+
+[ext_resource type="FontFile" uid="uid://dn1wmapu87jt8" path="res://_SHARED ASSETS/font/SVN-Retron 2000.otf" id="1_pye53"]
+
+[resource]
+font = ExtResource("1_pye53")
+font_size = 40
+font_color = Color(0.690196, 0.12549, 0.109804, 1)
+outline_size = 2
+outline_color = Color(0.689275, 0.12453, 0.107967, 1)

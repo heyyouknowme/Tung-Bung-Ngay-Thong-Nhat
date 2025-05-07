@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cuntf5b83xyr2"]
 
-[ext_resource type="Script" uid="uid://deeeliyf82c4g" path="res://TRON_TIM/scenes/gameover.gd" id="1_2mkfd"]
+[ext_resource type="Script" uid="uid://deeeliyf82c4g" path="res://TRON_TIM/scripts/gameover.gd" id="1_2mkfd"]
 [ext_resource type="Texture2D" uid="uid://ls0dohhy5ay4" path="res://TRON_TIM/assets/sprites/thua cuộc.png" id="2_2mkfd"]
 [ext_resource type="AudioStream" uid="uid://bhh5s36glv1n1" path="res://TRON_TIM/assets/sounds/game over.mp3" id="3_h8i2o"]
 

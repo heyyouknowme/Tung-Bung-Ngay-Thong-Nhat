@@ -1,24 +1,36 @@
-[gd_scene load_steps=26 format=3 uid="uid://dcq743xlwyx05"]
+[gd_scene load_steps=32 format=3 uid="uid://dcq743xlwyx05"]
 
 [ext_resource type="Texture2D" uid="uid://dmv8yg16x3ml1" path="res://TRON_TIM/assets/sprites/bg level 3.png" id="1_y0kc7"]
-[ext_resource type="PackedScene" uid="uid://b65qvi4bbgu4l" path="res://TRON_TIM/scenes/player.tscn" id="2_d31gq"]
 [ext_resource type="Script" uid="uid://4hwthvf5ubsh" path="res://TRON_TIM/scripts/level 2/ui_2.gd" id="2_nrx5s"]
 [ext_resource type="AudioStream" uid="uid://ddhr8pu31lxwl" path="res://TRON_TIM/assets/sounds/running.mp3" id="3_b4j7a"]
+[ext_resource type="SpriteFrames" uid="uid://c88dkas6iyipo" path="res://TRON_TIM/animations/player.tres" id="3_bnod2"]
 [ext_resource type="Script" uid="uid://c6bxgwoautb07" path="res://TRON_TIM/scripts/level 2/player_2.gd" id="3_wo48x"]
-[ext_resource type="PackedScene" uid="uid://cpqsdxk7jrchk" path="res://TRON_TIM/scenes/bachan.tscn" id="4_vu2py"]
-[ext_resource type="LabelSettings" uid="uid://nwjpolhe538" path="res://TRON_TIM/assets/fonts/new_label_settings.tres" id="7_gw1g8"]
+[ext_resource type="Script" uid="uid://crkey74qf74wk" path="res://TRON_TIM/scripts/level 2/bachan.gd" id="5_bnod2"]
+[ext_resource type="SpriteFrames" uid="uid://bwwnfj1jwrw6h" path="res://TRON_TIM/animations/bachan.tres" id="6_eo635"]
 [ext_resource type="Script" uid="uid://cjwrexs5vqi4" path="res://TRON_TIM/scripts/countdown_label.gd" id="7_hey2k"]
 [ext_resource type="Texture2D" uid="uid://dh00gqj11aqi1" path="res://TRON_TIM/assets/sprites/object bg level 3.png" id="7_ne2mo"]
+[ext_resource type="Texture2D" uid="uid://dtyhfueqg6xho" path="res://TRON_TIM/assets/sprites/visioncone.png" id="7_nxpoy"]
 [ext_resource type="AudioStream" uid="uid://bmcf11s3qxjk1" path="res://TRON_TIM/assets/sounds/countdown.mp3" id="7_y0kc7"]
+[ext_resource type="Script" uid="uid://mm161rd8efwf" path="res://TRON_TIM/scripts/level 2/vision_area2.gd" id="8_wy57t"]
 [ext_resource type="AudioStream" uid="uid://bhscokfl3suka" path="res://TRON_TIM/assets/sounds/reng hết giờ.mp3" id="9_6cvei"]
 [ext_resource type="Script" uid="uid://o2wnbq4jqpxn" path="res://MAIN/script/game_control.gd" id="9_al0ci"]
-[ext_resource type="LabelSettings" uid="uid://drw5dx528w3bf" path="res://TRON_TIM/assets/fonts/white.tres" id="9_gw1g8"]
+[ext_resource type="LabelSettings" uid="uid://cbiawuv7wb0ee" path="res://_SHARED ASSETS/font/red.tres" id="10_3awl3"]
 [ext_resource type="Texture2D" uid="uid://d04mex2btkvfd" path="res://MAIN/assets/ui/pause_icon.png" id="10_gw1g8"]
 [ext_resource type="AudioStream" uid="uid://bhobyhawe16ud" path="res://TRON_TIM/assets/sounds/warning.mp3" id="10_que50"]
 [ext_resource type="Texture2D" uid="uid://bt527iaapnslo" path="res://MAIN/assets/ui/pause_screen_in_game.png" id="11_typfp"]
 [ext_resource type="AudioStream" uid="uid://bhkkuoprm5lic" path="res://TRON_TIM/assets/sounds/level 2.mp3" id="12_172wr"]
 [ext_resource type="Theme" uid="uid://ccjbl02crsn70" path="res://MAIN/assets/control_theme.tres" id="12_nbrg0"]
+[ext_resource type="LabelSettings" uid="uid://dg7m4irgabr35" path="res://_SHARED ASSETS/font/white.tres" id="12_uqxeo"]
 [ext_resource type="StyleBox" uid="uid://cjd00vb5wc7vg" path="res://MAIN/assets/control_hover.tres" id="13_bnod2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3yna"]
+size = Vector2(11, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ph585"]
+size = Vector2(9, 25)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_eqhbv"]
+points = PackedVector2Array(50, 43, -140, -105, -139, 138)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_al0ci"]
 size = Vector2(438.387, 20.9677)
@@ -52,22 +64,59 @@ position = Vector2(4, 193)
 scale = Vector2(0.281985, 0.278958)
 texture = ExtResource("1_y0kc7")
 
-[node name="player" parent="level 2" instance=ExtResource("2_d31gq")]
+[node name="player" type="CharacterBody2D" parent="level 2"]
 position = Vector2(-97, 172)
 script = ExtResource("3_wo48x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="level 2/player"]
+sprite_frames = ExtResource("3_bnod2")
+animation = &"walk_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 2/player"]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_h3yna")
 
 [node name="FootstepSound" type="AudioStreamPlayer2D" parent="level 2/player"]
 stream = ExtResource("3_b4j7a")
 volume_db = 13.333
 
-[node name="bachan" parent="level 2" node_paths=PackedStringArray("patrol_points") instance=ExtResource("4_vu2py")]
+[node name="bachan" type="CharacterBody2D" parent="level 2" node_paths=PackedStringArray("patrol_points")]
 position = Vector2(-3, 247)
+script = ExtResource("5_bnod2")
 patrol_points = [NodePath("../Waypoints/Point7"), NodePath("../Waypoints/Point8"), NodePath("../Waypoints/Point1"), NodePath("../Waypoints/Point2"), NodePath("../Waypoints/Point3"), NodePath("../Waypoints/Point4"), NodePath("../Waypoints/Point5"), NodePath("../Waypoints/Point6")]
 player_path = NodePath("../player")
 
-[node name="Area2D" parent="level 2/bachan/VisionRoot/VisionCone" index="0" node_paths=PackedStringArray("countdown_label")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 2/bachan"]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_ph585")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="level 2/bachan"]
+sprite_frames = ExtResource("6_eo635")
+animation = &"walk_up"
+
+[node name="VisionRoot" type="Node2D" parent="level 2/bachan"]
+position = Vector2(1, 0)
+
+[node name="VisionCone" type="TextureRect" parent="level 2/bachan/VisionRoot"]
+z_index = -1
+offset_left = -189.0
+offset_top = -145.0
+offset_right = -5.0
+offset_bottom = 78.0
+size_flags_horizontal = 0
+texture = ExtResource("7_nxpoy")
+expand_mode = 5
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="level 2/bachan/VisionRoot/VisionCone" node_paths=PackedStringArray("countdown_label")]
+position = Vector2(96, 24)
+script = ExtResource("8_wy57t")
 player_path = NodePath("../../../../player")
 countdown_label = NodePath("../../../../UI/CountdownLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 2/bachan/VisionRoot/VisionCone/Area2D"]
+position = Vector2(46, 76)
+shape = SubResource("ConvexPolygonShape2D_eqhbv")
 
 [node name="UI" type="CanvasLayer" parent="level 2"]
 script = ExtResource("2_nrx5s")
@@ -82,7 +131,7 @@ offset_bottom = 64.14
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0.92549, 0, 0.14902, 1)
 theme_override_font_sizes/font_size = 30
-label_settings = ExtResource("7_gw1g8")
+label_settings = ExtResource("10_3awl3")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("7_hey2k")
@@ -93,7 +142,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 60.0
 offset_bottom = 86.0
-label_settings = ExtResource("9_gw1g8")
+label_settings = ExtResource("12_uqxeo")
 metadata/_edit_use_anchors_ = true
 
 [node name="LevelTimer" type="Timer" parent="level 2/UI"]
@@ -298,6 +347,3 @@ text = "Exit Game"
 
 [connection signal="body_entered" from="level 2/bachan/VisionRoot/VisionCone/Area2D" to="level 2/bachan" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="level 2/bachan/VisionRoot/VisionCone/Area2D" to="level 2/bachan" method="_on_area_2d_body_exited"]
-
-[editable path="level 2/player"]
-[editable path="level 2/bachan"]

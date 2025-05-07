@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cq840xoqhnkaf"]
 
-[ext_resource type="Script" uid="uid://cvt04df5jmsft" path="res://TRON_TIM/scenes/level_completed.gd" id="1_edfq6"]
+[ext_resource type="Script" uid="uid://cvt04df5jmsft" path="res://TRON_TIM/scripts/level_completed.gd" id="1_edfq6"]
 [ext_resource type="Texture2D" uid="uid://c2d5nk14hrbc7" path="res://TRON_TIM/assets/sprites/qua màn.png" id="2_edfq6"]
 [ext_resource type="AudioStream" uid="uid://bdd13m5ybqrvd" path="res://TRON_TIM/assets/sounds/level completed.mp3" id="3_5rajc"]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://r5qipqxfe6m8"]
+[gd_scene load_steps=21 format=3 uid="uid://r5qipqxfe6m8"]
 
 [ext_resource type="Theme" uid="uid://bpy4fqe3itb3n" path="res://NOI_CHU/assets/themes/main_theme.tres" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://dxyslbm6sg12t" path="res://NOI_CHU/scripts/GameNoiTu.gd" id="2_tefeu"]
+[ext_resource type="LabelSettings" uid="uid://iqa07esj02op" path="res://_SHARED ASSETS/font/orange.tres" id="3_fno2q"]
 [ext_resource type="Script" uid="uid://dp735i2vlxj1k" path="res://NOI_CHU/scripts/Toast.gd" id="3_o6xl0"]
 [ext_resource type="Theme" uid="uid://nd3ot00kvwmv" path="res://NOI_CHU/assets/themes/toast.tres" id="4_tipki"]
 [ext_resource type="Texture2D" uid="uid://idt1ip8j5gb4" path="res://NOI_CHU/assets/pics/main backgrounds/snake.png" id="5_a8y0u"]
@@ -18,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://by6got5pc3ax1" path="res://NOI_CHU/assets/audio/ding.mp3" id="16_dp3eg"]
 [ext_resource type="AudioStream" uid="uid://cy8a413d7ngyd" path="res://NOI_CHU/assets/audio/wrong.mp3" id="17_0ld40"]
 [ext_resource type="AudioStream" uid="uid://dalt8qxfaxien" path="res://NOI_CHU/assets/audio/timeout.mp3" id="18_gqmmt"]
-[ext_resource type="PackedScene" uid="uid://bghlte3la24n5" path="res://MAIN/scenes/ui/game_control.tscn" id="19_l0yje"]
+[ext_resource type="PackedScene" uid="uid://bghlte3la24n5" path="res://MAIN/scenes/game_control.tscn" id="19_l0yje"]
 
 [node name="GameNoiTu" type="Control"]
 layout_mode = 3
@@ -52,12 +53,14 @@ size_flags_vertical = 4
 custom_minimum_size = Vector2(250, 70)
 layout_mode = 2
 text = "Điểm: 0"
+label_settings = ExtResource("3_fno2q")
 horizontal_alignment = 1
 
 [node name="TimeLabel" type="Label" parent="MainLayout/ScoreTimerBox"]
 custom_minimum_size = Vector2(250, 70)
 layout_mode = 2
 text = "Thời gian: 00:20"
+label_settings = ExtResource("3_fno2q")
 horizontal_alignment = 1
 
 [node name="CurrentWordContainer" type="CenterContainer" parent="MainLayout"]
@@ -67,6 +70,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(500, 70)
 layout_mode = 2
 text = "Từ hiện tại: ..."
+label_settings = ExtResource("3_fno2q")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -98,6 +102,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(750, 70)
 layout_mode = 2
 theme = ExtResource("4_tipki")
+label_settings = ExtResource("3_fno2q")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_o6xl0")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://l6oa5gn8j17i"]
+[gd_scene load_steps=24 format=3 uid="uid://l6oa5gn8j17i"]
 
 [ext_resource type="Texture2D" uid="uid://dgqge3sd07pt0" path="res://MAIN/assets/map/ground/ground_map.png" id="1_85g3d"]
 [ext_resource type="Texture2D" uid="uid://dwgog2a8e3qas" path="res://MAIN/assets/map/ground/ground_normal_map.png" id="2_choun"]
@@ -13,9 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cfcvyxtsih0na" path="res://MAIN/scenes/Characters/stall_owner_co_ganh.tscn" id="11_wbhge"]
 [ext_resource type="PackedScene" uid="uid://b87srfl61mmo7" path="res://MAIN/scenes/Characters/stall_owner_tron_tim.tscn" id="12_0u2gu"]
 [ext_resource type="Script" uid="uid://cxp5xejpu7jbk" path="res://MAIN/script/music_player.gd" id="13_8iw05"]
-[ext_resource type="AudioStream" uid="uid://b7gsykry5x545" path="res://MAIN/assets/music/Việt Nam Tôi - Ngọc Khánh Chi Cover _ ICM STUDIO.mp3" id="14_3crhg"]
-[ext_resource type="AudioStream" uid="uid://c6puwo5keyedr" path="res://MAIN/assets/music/TUỔI TRẺ THẾ HỆ BÁC HỒ (Triều Dâng) - Tùng Dương _ Official Lyric Video.mp3" id="15_evthf"]
-[ext_resource type="AudioStream" uid="uid://c7tu8usi3exuh" path="res://MAIN/assets/music/Như Có Bác Hồ Trong Ngày Vui Đại Thắng - Tốp Ca Nhạc Viện TP HCM - Việt Nam Hồ Chí Minh.mp3" id="16_g4wkh"]
+[ext_resource type="AudioStream" uid="uid://dao3ll0q0wmp" path="res://MAIN/assets/music/Tuyển Tập Các Bài Hát Về Tình Yêu Quê Hương, Đất Nước _ Playlist Tự Hào Người Con Đất Việt.mp3" id="14_8iw05"]
 [ext_resource type="PackedScene" uid="uid://dgopeslpf21xq" path="res://MAIN/scenes/Characters/npc_2.tscn" id="17_3crhg"]
 [ext_resource type="PackedScene" uid="uid://8napk5noyf2j" path="res://MAIN/scenes/Characters/npc_3.tscn" id="18_evthf"]
 
@@ -291,13 +289,8 @@ transform = Transform3D(-23.4469, 0, -18.7147, 0, 30, 0, 18.7147, 0, -23.4469, 2
 script = ExtResource("13_8iw05")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node3D5"]
-stream = ExtResource("14_3crhg")
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Node3D5"]
-stream = ExtResource("15_evthf")
-
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Node3D5"]
-stream = ExtResource("16_g4wkh")
+stream = ExtResource("14_8iw05")
+autoplay = true
 
 [node name="Npc3" parent="." instance=ExtResource("17_3crhg")]
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 2.55148, -0.100008, -56.6906)

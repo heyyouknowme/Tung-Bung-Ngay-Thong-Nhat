@@ -1,14 +1,14 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://bpy4fqe3itb3n"]
 
-[ext_resource type="FontFile" uid="uid://blisohd03h60j" path="res://assets/fonts/SVN-Retron-2000.otf" id="1_3f3va"]
+[ext_resource type="FontFile" uid="uid://dn1wmapu87jt8" path="res://_SHARED ASSETS/font/SVN-Retron 2000.otf" id="1_0mdr6"]
 
 [resource]
 Button/font_sizes/font_size = 30
-Button/fonts/font = ExtResource("1_3f3va")
+Button/fonts/font = ExtResource("1_0mdr6")
 Label/colors/font_color = Color(0.7, 0.1, 0.1, 1)
 Label/colors/font_outline_color = Color(1, 0.8, 0.2, 1)
 Label/constants/outline_size = 4
 Label/font_sizes/font_size = 50
-Label/fonts/font = ExtResource("1_3f3va")
+Label/fonts/font = null
 LineEdit/font_sizes/font_size = 31
-LineEdit/fonts/font = ExtResource("1_3f3va")
+LineEdit/fonts/font = null

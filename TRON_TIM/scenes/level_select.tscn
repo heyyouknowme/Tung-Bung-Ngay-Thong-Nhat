@@ -1,16 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtldakbvg00xr"]
+[gd_scene load_steps=15 format=3 uid="uid://dtldakbvg00xr"]
 
 [ext_resource type="Script" uid="uid://btk7e7eixfng1" path="res://TRON_TIM/scripts/level_select.gd" id="1_3shnc"]
 [ext_resource type="Texture2D" uid="uid://chuhmngvnl78u" path="res://TRON_TIM/assets/sprites/menu.png" id="2_p0wlc"]
 [ext_resource type="AudioStream" uid="uid://h5qgp0aelc4y" path="res://TRON_TIM/assets/sounds/intro.mp3" id="3_2epne"]
 [ext_resource type="Texture2D" uid="uid://cbb3ki1kf5uxe" path="res://TRON_TIM/assets/sprites/object menu.png" id="4_r77uv"]
-[ext_resource type="PackedScene" uid="uid://b65qvi4bbgu4l" path="res://TRON_TIM/scenes/player.tscn" id="4_rif6e"]
 [ext_resource type="Script" uid="uid://by71ivo7a4r8l" path="res://TRON_TIM/scripts/player.gd" id="5_chg43"]
+[ext_resource type="SpriteFrames" uid="uid://c88dkas6iyipo" path="res://TRON_TIM/animations/player.tres" id="6_ogybo"]
 [ext_resource type="Script" uid="uid://o2wnbq4jqpxn" path="res://MAIN/script/game_control.gd" id="7_ogybo"]
 [ext_resource type="Texture2D" uid="uid://d04mex2btkvfd" path="res://MAIN/assets/ui/pause_icon.png" id="8_bos8f"]
 [ext_resource type="Texture2D" uid="uid://bt527iaapnslo" path="res://MAIN/assets/ui/pause_screen_in_game.png" id="9_1rtpr"]
 [ext_resource type="Theme" uid="uid://ccjbl02crsn70" path="res://MAIN/assets/control_theme.tres" id="10_f2ums"]
 [ext_resource type="StyleBox" uid="uid://cjd00vb5wc7vg" path="res://MAIN/assets/control_hover.tres" id="11_p8kdq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3yna"]
+size = Vector2(11, 26)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_brbbq"]
 
@@ -96,9 +99,17 @@ polygon = PackedVector2Array(65, 157, 61, 133, 60, 103, 87, 93, 90, 79, 55, 68, 
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="level_select/StaticBody2D"]
 polygon = PackedVector2Array(152, 120, 152, 149, 205, 169, 215, 156, 217, 140, 214, 125)
 
-[node name="player" parent="level_select" instance=ExtResource("4_rif6e")]
+[node name="player" type="CharacterBody2D" parent="level_select"]
 position = Vector2(-93, 257)
 script = ExtResource("5_chg43")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="level_select/player"]
+sprite_frames = ExtResource("6_ogybo")
+animation = &"walk_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_select/player"]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_h3yna")
 
 [node name="Control" type="Control" parent="."]
 z_index = 100

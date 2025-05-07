@@ -25,13 +25,17 @@ func _ready():
 	ai_level = SceneManager.ai_level
 	match ai_level:
 		"easy":
-			AIPlayer = preload("res://O_AN_QUAN/scripts/ai_player_1.gd").new()
+			SceneManager.MAX_DEPTH = 1
+			
 		"medium":
-			AIPlayer = preload("res://O_AN_QUAN/scripts/ai_player_2.gd").new()
+			SceneManager.MAX_DEPTH = 3
+			
 		"hard":
-			AIPlayer = preload("res://O_AN_QUAN/scripts/ai_player_3.gd").new()
+			SceneManager.MAX_DEPTH = 7
+			
+	AIPlayer = preload("res://O_AN_QUAN/scripts/ai_player.gd").new()
+	print(SceneManager.MAX_DEPTH)
 	setup_board()
-
 func setup_board():
 	var init_data = [
 		{"type": "quan", "player": "none", "count": 1},   # Slot 0
